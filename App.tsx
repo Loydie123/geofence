@@ -36,7 +36,7 @@ export default function App() {
           <View className="h-4" />
 
           <TouchableOpacity 
-            className="bg-[#1877F2] rounded-xl py-4 px-6 flex-row items-center relative"
+            className="bg-white border border-gray-200 rounded-xl py-4 px-6 flex-row items-center relative"
             activeOpacity={0.7}
           >
             <View className="absolute left-6">
@@ -46,7 +46,7 @@ export default function App() {
                 resizeMode="contain"
               />
             </View>
-            <Text className="text-white font-medium text-base flex-1 text-center">
+            <Text className="text-gray-700 font-medium text-base flex-1 text-center">
               Continue with Facebook
             </Text>
           </TouchableOpacity>
