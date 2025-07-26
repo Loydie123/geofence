@@ -23,7 +23,7 @@ export default function LandingPage() {
           
           <View className="w-96 mt-20">
             <TouchableOpacity 
-              className="bg-white/80 backdrop-blur-sm border border-gray-300 rounded-xl py-4 px-6 flex-row items-center relative shadow-sm"
+              className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl py-4 px-6 flex-row items-center relative shadow-sm"
               activeOpacity={0.7}
             >
               <View className="absolute left-6">
@@ -33,7 +33,7 @@ export default function LandingPage() {
                   resizeMode="contain"
                 />
               </View>
-              <View className="absolute left-16 h-12 w-[1px] bg-gray-300" />
+              <View className="absolute left-16 h-12 w-[1px] bg-gray-200" />
               <Text className="text-gray-700 font-medium text-base flex-1 text-center">
                 Continue with Google
               </Text>
@@ -42,7 +42,7 @@ export default function LandingPage() {
             <View className="h-4" />
 
             <TouchableOpacity 
-              className="bg-white/80 backdrop-blur-sm border border-gray-300 rounded-xl py-4 px-6 flex-row items-center relative shadow-sm"
+              className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl py-4 px-6 flex-row items-center relative shadow-sm"
               activeOpacity={0.7}
             >
               <View className="absolute left-6">
@@ -52,7 +52,7 @@ export default function LandingPage() {
                   resizeMode="contain"
                 />
               </View>
-              <View className="absolute left-16 h-12 w-[1px] bg-gray-300" />
+              <View className="absolute left-16 h-12 w-[1px] bg-gray-200" />
               <Text className="text-gray-700 font-medium text-base flex-1 text-center">
                 Continue with Facebook
               </Text>
