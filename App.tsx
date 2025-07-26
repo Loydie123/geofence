@@ -12,7 +12,6 @@ export default function App() {
           className="h-64 w-64"
           resizeMode="contain"
         />
-        <Text className="text-xl font-bold text-gray-800">CommuteSafe</Text>
       </View>
       <StatusBar style="auto" />
     </View>
