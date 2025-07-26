@@ -5,7 +5,7 @@ import './global.css';
 
 export default function App() {
   return (
-    <View className="flex-1 items-center justify-center bg-white">
+    <View className="flex-1 items-center justify-start bg-white pt-32">
       <View className="items-center space-y-4">
         <Image 
           source={require('./assets/images/geofence.png')}
