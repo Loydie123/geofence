@@ -28,6 +28,7 @@ export default function App() {
                 resizeMode="contain"
               />
             </View>
+            <View className="absolute left-16 h-12 w-[1px] bg-gray-300" />
             <Text className="text-gray-700 font-medium text-base flex-1 text-center">
               Continue with Google
             </Text>
@@ -46,6 +47,7 @@ export default function App() {
                 resizeMode="contain"
               />
             </View>
+            <View className="absolute left-16 h-12 w-[1px] bg-gray-300" />
             <Text className="text-gray-700 font-medium text-base flex-1 text-center">
               Continue with Facebook
             </Text>
