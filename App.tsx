@@ -12,11 +12,11 @@ export default function App() {
           className="h-96 w-96"
           resizeMode="contain"
         />
-        <Text className="text-xl text-gray-600 font-medium text-center px-4 -mt-8">
+        <Text className="text-xl text-gray-600 font-medium text-center px-4 -mt-4">
           Real Time Alert for Smooth Safe Commute
         </Text>
         
-        <View className="w-80 space-y-4 mt-16">
+        <View className="w-80 mt-16">
           <TouchableOpacity 
             className="bg-white border border-gray-200 rounded-xl py-4 px-6 flex-row items-center relative"
             activeOpacity={0.7}
@@ -32,6 +32,8 @@ export default function App() {
               Continue with Google
             </Text>
           </TouchableOpacity>
+
+          <View className="h-4" />
 
           <TouchableOpacity 
             className="bg-[#1877F2] rounded-xl py-4 px-6 flex-row items-center relative"
