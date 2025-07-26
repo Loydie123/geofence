@@ -13,7 +13,7 @@ export default function App() {
           resizeMode="contain"
         />
         <Text className="text-xl text-gray-700 font-medium text-center px-4">
-          Real Time Alert for Smooth safe commute
+          Real Time Alert for Smooth Safe commute
         </Text>
       </View>
       <StatusBar style="auto" />
