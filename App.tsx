@@ -60,7 +60,7 @@ export default function App() {
             <Text className="text-green-600">Privacy Policy.</Text>
           </Text>
 
-          <Text className="text-xs text-gray-400 text-center mt-8">
+          <Text className="text-xs text-gray-400 text-center mt-36">
             © {new Date().getFullYear()} CommuteSafe. All rights reserved.
           </Text>
         </View>
