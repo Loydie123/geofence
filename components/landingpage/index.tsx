@@ -8,7 +8,6 @@ export default function LandingPage() {
         colors={['#f0fdf4', '#dcfce7', '#f0fdf4']}
         className="flex-1 items-center justify-start pt-40"
       >
-        {/* Bubble designs - top left corner */}
         <View className="absolute top-0 left-0 w-40 h-40 bg-[#4ade80] opacity-40 rounded-full -translate-x-10 -translate-y-10" />
         <View className="absolute top-0 left-0 w-32 h-32 bg-[#86efac] opacity-50 rounded-full translate-x-4" />
         <View className="absolute top-0 left-12 w-28 h-28 bg-[#bbf7d0] opacity-45 rounded-full translate-y-2" />
