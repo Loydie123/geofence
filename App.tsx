@@ -18,7 +18,7 @@ export default function App() {
         
         <View className="w-96 mt-20">
           <TouchableOpacity 
-            className="bg-white border border-gray-200 rounded-xl py-4 px-6 flex-row items-center relative"
+            className="bg-white border border-gray-300 rounded-xl py-4 px-6 flex-row items-center relative shadow-sm"
             activeOpacity={0.7}
           >
             <View className="absolute left-6">
@@ -36,7 +36,7 @@ export default function App() {
           <View className="h-4" />
 
           <TouchableOpacity 
-            className="bg-white border border-gray-200 rounded-xl py-4 px-6 flex-row items-center relative"
+            className="bg-white border border-gray-300 rounded-xl py-4 px-6 flex-row items-center relative shadow-sm"
             activeOpacity={0.7}
           >
             <View className="absolute left-6">
