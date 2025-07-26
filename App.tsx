@@ -6,7 +6,7 @@ import './global.css';
 export default function App() {
   return (
     <View className="flex-1 items-center justify-center">
-      <Text className="text-xl font-bold">Welcome to Geofence</Text>
+      <Text className="text-xl font-bold">CommuteSafe</Text>
       <StatusBar style="auto" />
     </View>
   );
