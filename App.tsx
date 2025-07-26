@@ -18,29 +18,33 @@ export default function App() {
         
         <View className="w-80 space-y-4 mt-16">
           <TouchableOpacity 
-            className="bg-white border border-gray-200 rounded-xl py-3 px-6 flex-row items-center justify-center space-x-3 shadow-sm"
+            className="bg-white border border-gray-200 rounded-xl py-4 px-6 flex-row items-center relative"
             activeOpacity={0.7}
           >
-            <Image 
-              source={require('./assets/images/google.png')} 
-              className="h-5 w-5"
-              resizeMode="contain"
-            />
-            <Text className="text-gray-700 font-medium">
+            <View className="absolute left-6">
+              <Image 
+                source={require('./assets/images/google.png')} 
+                className="h-5 w-5"
+                resizeMode="contain"
+              />
+            </View>
+            <Text className="text-gray-700 font-medium text-base flex-1 text-center">
               Continue with Google
             </Text>
           </TouchableOpacity>
 
           <TouchableOpacity 
-            className="bg-[#1877F2] rounded-xl py-3 px-6 flex-row items-center justify-center space-x-3 shadow-sm"
+            className="bg-[#1877F2] rounded-xl py-4 px-6 flex-row items-center relative"
             activeOpacity={0.7}
           >
-            <Image 
-              source={require('./assets/images/facebook.png')} 
-              className="h-5 w-5"
-              resizeMode="contain"
-            />
-            <Text className="text-white font-medium">
+            <View className="absolute left-6">
+              <Image 
+                source={require('./assets/images/facebook.png')} 
+                className="h-5 w-5"
+                resizeMode="contain"
+              />
+            </View>
+            <Text className="text-white font-medium text-base flex-1 text-center">
               Continue with Facebook
             </Text>
           </TouchableOpacity>
