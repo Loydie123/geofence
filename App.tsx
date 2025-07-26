@@ -9,7 +9,7 @@ export default function App() {
       <View className="items-center space-y-4">
         <Image 
           source={require('./assets/images/geofence.png')}
-          className="h-96 w-96" // Increased from h-64 w-64 to h-96 w-96 (384x384px)
+          className="h-96 w-96"
           resizeMode="contain"
         />
       </View>
