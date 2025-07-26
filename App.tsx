@@ -7,9 +7,6 @@ export default function App() {
   return (
     <View className="flex-1 items-center justify-start bg-white pt-40">
       <View className="items-center space-y-6">
-        <Text className="text-2xl text-gray-400 font-semibold text-center px-4">
-          Welcome to
-        </Text>
         <Image 
           source={require('./assets/images/geofence.png')}
           className="h-96 w-96"
