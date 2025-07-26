@@ -12,7 +12,7 @@ export default function App() {
           className="h-96 w-96"
           resizeMode="contain"
         />
-        <Text className="text-xl text-gray-500 font-medium text-center px-4">
+        <Text className="text-xl text-gray-400 font-medium text-center px-4">
           Real Time Alert for Smooth Safe Commute
         </Text>
       </View>
