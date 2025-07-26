@@ -52,6 +52,13 @@ export default function App() {
               Continue with Facebook
             </Text>
           </TouchableOpacity>
+
+          <Text className="text-xs text-gray-500 text-center mt-12 px-4">
+            By signing in, you agree to our{' '}
+            <Text className="text-green-600">Terms of Service</Text>{' '}
+            and{' '}
+            <Text className="text-green-600">Privacy Policy.</Text>
+          </Text>
         </View>
       </View>
       <StatusBar style="auto" />
