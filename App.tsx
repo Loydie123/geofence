@@ -16,7 +16,7 @@ export default function App() {
           Real Time Alert for Smooth Safe Commute
         </Text>
         
-        <View className="w-80 mt-16">
+        <View className="w-96 mt-16">
           <TouchableOpacity 
             className="bg-white border border-gray-200 rounded-xl py-4 px-6 flex-row items-center relative"
             activeOpacity={0.7}
