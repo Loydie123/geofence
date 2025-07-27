@@ -44,7 +44,7 @@ export default function OnboardingScreen() {
         onScroll={scrollHandler}
         scrollEventThrottle={16}
       >
-        <View style={{ width: SCREEN_WIDTH, alignItems: 'center', paddingTop: 50 }}>
+        <View style={{ width: SCREEN_WIDTH, alignItems: 'center', justifyContent: 'center', flex: 1 }}>
           <Image
             source={require('../assets/images/onboarding/1.png')}
             style={{ width: SCREEN_WIDTH * 0.8, height: SCREEN_WIDTH * 0.8 }}
@@ -58,7 +58,7 @@ export default function OnboardingScreen() {
           </Text>
         </View>
 
-        <View style={{ width: SCREEN_WIDTH, alignItems: 'center', paddingTop: 50 }}>
+        <View style={{ width: SCREEN_WIDTH, alignItems: 'center', justifyContent: 'center', flex: 1 }}>
           <Image
             source={require('../assets/images/onboarding/2.jpeg')}
             style={{ width: SCREEN_WIDTH * 0.8, height: SCREEN_WIDTH * 0.8 }}
@@ -72,7 +72,7 @@ export default function OnboardingScreen() {
           </Text>
         </View>
 
-        <View style={{ width: SCREEN_WIDTH, alignItems: 'center', paddingTop: 50 }}>
+        <View style={{ width: SCREEN_WIDTH, alignItems: 'center', justifyContent: 'center', flex: 1 }}>
           <Image
             source={require('../assets/images/onboarding/3.png')}
             style={{ width: SCREEN_WIDTH * 0.8, height: SCREEN_WIDTH * 0.8 }}
