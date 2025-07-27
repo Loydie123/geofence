@@ -28,7 +28,6 @@ export default function HomeScreen() {
         shadowRadius: 4,
         elevation: 5,
       }}>
-        {/* Handle Line */}
         <View style={{
           width: 40,
           height: 4,
