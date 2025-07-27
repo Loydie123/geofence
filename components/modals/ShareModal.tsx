@@ -29,28 +29,7 @@ export default function ShareModal({ visible, onClose }: ShareModalProps) {
           </View>
 
           <View className="p-6">
-            <View className="flex-row justify-around">
-              <TouchableOpacity className="items-center" onPress={() => {}}>
-                <View className="w-14 h-14 bg-[#f0fdf4] rounded-full items-center justify-center mb-2">
-                  <MaterialCommunityIcons name="whatsapp" size={32} color="#25D366" />
-                </View>
-                <Text className="text-sm text-gray-600">WhatsApp</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity className="items-center" onPress={() => {}}>
-                <View className="w-14 h-14 bg-[#f0fdf4] rounded-full items-center justify-center mb-2">
-                  <MaterialCommunityIcons name="message-text" size={32} color="#90EE90" />
-                </View>
-                <Text className="text-sm text-gray-600">Message</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity className="items-center" onPress={() => {}}>
-                <View className="w-14 h-14 bg-[#f0fdf4] rounded-full items-center justify-center mb-2">
-                  <MaterialCommunityIcons name="content-copy" size={32} color="#90EE90" />
-                </View>
-                <Text className="text-sm text-gray-600">Copy Link</Text>
-              </TouchableOpacity>
-            </View>
+            {/* Content will go here */}
           </View>
         </View>
       </View>
