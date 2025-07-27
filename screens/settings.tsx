@@ -116,6 +116,8 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
             style={{ marginLeft: 'auto' }}
           />
         </TouchableOpacity>
+
+        <Text className="text-base font-medium text-gray-800 mt-8 mb-4">App</Text>
       </View>
     </View>
   );
