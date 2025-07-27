@@ -24,7 +24,6 @@ export default function HomeScreen() {
           elevation: 5,
         }}
         onPress={() => {
-          // Handle settings press
           console.log('Settings pressed');
         }}
       >
