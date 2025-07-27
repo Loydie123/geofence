@@ -18,7 +18,6 @@ export default function LandingPage() {
       } else {
       }
     } catch (err) {
-      // Handle error silently - OAuth errors are usually due to user cancellation
       return { success: false, error: err };
     }
   };
