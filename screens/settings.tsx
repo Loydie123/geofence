@@ -59,7 +59,7 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
         </TouchableOpacity>
 
         <TouchableOpacity 
-          className="flex-row items-center py-4 px-4 bg-white border border-gray-100 rounded-xl active:bg-gray-50"
+          className="flex-row items-center py-4 px-4 bg-white border border-gray-100 rounded-xl active:bg-gray-50 mb-8"
           onPress={() => {}}
         >
           <View className="bg-[#f0fdf4] p-2 rounded-lg">
@@ -76,6 +76,8 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
             style={{ marginLeft: 'auto' }}
           />
         </TouchableOpacity>
+
+        <Text className="text-base font-medium text-gray-800 mb-4">Communicate with Us</Text>
       </View>
     </View>
   );
