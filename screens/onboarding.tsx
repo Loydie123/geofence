@@ -14,7 +14,6 @@ export default function OnboardingScreen() {
     handleMomentumScrollEnd,
     handleNext,
     handleSkip,
-    handleSignOut,
   } = useOnboarding();
 
   return (
@@ -117,7 +116,7 @@ export default function OnboardingScreen() {
             </View>
           ) : (
             <TouchableOpacity
-              onPress={handleSignOut}
+              onPress={handleNext}
               style={{
                 backgroundColor: colors.primary,
                 padding: 16,
