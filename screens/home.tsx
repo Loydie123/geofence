@@ -9,6 +9,28 @@ export default function HomeScreen() {
       <MapScreen />
       <MapButtons />
       
+      <TouchableOpacity 
+        style={{
+          position: 'absolute',
+          top: 35,
+          right: 20,
+          backgroundColor: 'white',
+          borderRadius: 30,
+          padding: 10,
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 0,
+            height: 2,
+          },
+          shadowOpacity: 0.25,
+          shadowRadius: 3.84,
+          elevation: 5,
+        }}
+        onPress={() => console.log('Logout')}
+      >
+        <MaterialCommunityIcons name="logout" size={24} color="#FF4444" />
+      </TouchableOpacity>
+
       <View style={{
         position: 'absolute',
         bottom: 0,
