@@ -1,45 +1,21 @@
 import { View, Text, TouchableOpacity, Image, useWindowDimensions, NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
-import { useRef, useState } from 'react';
-import { useAuth } from '@clerk/clerk-expo';
 import Animated from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
 import { colors, gradients } from '../constants/theme';
 import { onboardingSlides, bubbleStyles } from '../constants/onboarding';
+import { useOnboarding } from '../hooks/useOnboarding';
 
 export default function OnboardingScreen() {
-  const { width: SCREEN_WIDTH } = useWindowDimensions();
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const slidesRef = useRef<Animated.ScrollView>(null);
-  const { signOut } = useAuth();
-
-  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const contentOffset = event.nativeEvent.contentOffset.x;
-    const index = Math.round(contentOffset / SCREEN_WIDTH);
-    if (index !== currentIndex) {
-      setCurrentIndex(index);
-    }
-  };
-
-  const handleMomentumScrollEnd = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    const contentOffset = event.nativeEvent.contentOffset.x;
-    const index = Math.round(contentOffset / SCREEN_WIDTH);
-    setCurrentIndex(index);
-  };
-
-  const handleNext = () => {
-    if (currentIndex < onboardingSlides.length - 1) {
-      slidesRef.current?.scrollTo({ x: SCREEN_WIDTH * (currentIndex + 1), animated: true });
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
-
-  const handleSignOut = async () => {
-    try {
-      await signOut();
-    } catch (err) {
-      console.error('Error signing out:', err);
-    }
-  };
+  const {
+    currentIndex,
+    SCREEN_WIDTH,
+    slidesRef,
+    handleScroll,
+    handleMomentumScrollEnd,
+    handleNext,
+    handleSkip,
+    handleSignOut,
+  } = useOnboarding();
 
   return (
     <View style={{ flex: 1 }}>
@@ -112,10 +88,7 @@ export default function OnboardingScreen() {
           {currentIndex < onboardingSlides.length - 1 ? (
             <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
               <TouchableOpacity
-                onPress={() => {
-                  slidesRef.current?.scrollTo({ x: SCREEN_WIDTH * (onboardingSlides.length - 1), animated: true });
-                  setCurrentIndex(onboardingSlides.length - 1);
-                }}
+                onPress={handleSkip}
                 style={{
                   padding: 16,
                   alignItems: 'center',
