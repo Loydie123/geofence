@@ -79,7 +79,7 @@ export default function HomeScreen() {
               borderRadius: 15,
               width: '30%'
             }}
-            onPress={() => console.log('Start tracking')}
+            onPress={() => {}}
           >
             <MaterialCommunityIcons name="map-marker-path" size={28} color="#90EE90" />
             <Text style={{ marginTop: 5, color: '#666' }}>Track</Text>
@@ -93,7 +93,7 @@ export default function HomeScreen() {
               borderRadius: 15,
               width: '30%'
             }}
-            onPress={() => console.log('Add geofence')}
+            onPress={() => {}}
           >
             <MaterialCommunityIcons name="map-marker-radius" size={28} color="#90EE90" />
             <Text style={{ marginTop: 5, color: '#666' }}>Add Fence</Text>
@@ -107,7 +107,7 @@ export default function HomeScreen() {
               borderRadius: 15,
               width: '30%'
             }}
-            onPress={() => console.log('View history')}
+            onPress={() => {}}
           >
             <MaterialCommunityIcons name="history" size={28} color="#90EE90" />
             <Text style={{ marginTop: 5, color: '#666' }}>History</Text>

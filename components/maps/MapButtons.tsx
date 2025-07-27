@@ -28,9 +28,7 @@ export default function MapButtons() {
           shadowRadius: 3.84,
           elevation: 5,
         }}
-        onPress={() => {
-          console.log('Settings pressed');
-        }}
+        onPress={() => {}}
       >
         <Ionicons name="settings" size={24} color="#90EE90" />
       </TouchableOpacity>
@@ -53,9 +51,7 @@ export default function MapButtons() {
           elevation: 5,
           transform: [{ translateY: -20 }],
         }}
-        onPress={() => {
-          console.log('Crosshair pressed');
-        }}
+        onPress={() => {}}
       >
         <MaterialCommunityIcons name="crosshairs-gps" size={28} color="#90EE90" />
       </TouchableOpacity>
@@ -78,9 +74,7 @@ export default function MapButtons() {
           elevation: 5,
           transform: [{ translateY: 40 }],
         }}
-        onPress={() => {
-          console.log('Layers pressed');
-        }}
+        onPress={() => {}}
       >
         <MaterialCommunityIcons name="layers-triple" size={28} color="#90EE90" />
       </TouchableOpacity>
@@ -103,9 +97,7 @@ export default function MapButtons() {
           elevation: 5,
           transform: [{ translateY: 100 }],
         }}
-        onPress={() => {
-          console.log('Share pressed');
-        }}
+        onPress={() => {}}
       >
         <MaterialCommunityIcons name="share-variant" size={28} color="#90EE90" />
       </TouchableOpacity>
