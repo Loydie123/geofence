@@ -47,7 +47,6 @@ export default function OnboardingScreen() {
         colors={gradients.primary}
         style={{ flex: 1 }}
       >
-        {/* Bubbles */}
         {bubbleStyles.map((bubble, index) => (
           <View
             key={index}
