@@ -50,7 +50,6 @@ export default function LayersModal({ visible, onClose }: LayersModalProps) {
                 className={`flex-row items-center p-3 rounded-xl mb-2 ${selectedLayer === layer.id ? 'bg-[#f0fdf4]' : ''}`}
                 onPress={() => {
                   setSelectedLayer(layer.id);
-                  // Here we would update the map style
                 }}
               >
                 <View className={`w-10 h-10 rounded-full items-center justify-center ${selectedLayer === layer.id ? 'bg-white' : 'bg-gray-50'}`}>
