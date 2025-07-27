@@ -77,9 +77,16 @@ export default function HomeScreen() {
           marginBottom: 10,
           borderWidth: 1,
           borderColor: '#f0f0f0',
-          height: 50
+          height: 50,
+          justifyContent: 'space-between'
         }}>
-          {/* Content will go here */}
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <MaterialCommunityIcons name="music" size={20} color="#666" />
+            <Text style={{ marginLeft: 8, fontSize: 16, color: '#333' }}>Notification Sound</Text>
+          </View>
+          <TouchableOpacity>
+            <MaterialCommunityIcons name="cog" size={20} color="#666" />
+          </TouchableOpacity>
         </View>
       </View>
     </View>
