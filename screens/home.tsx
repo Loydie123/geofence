@@ -6,7 +6,6 @@ export default function HomeScreen() {
   return (
     <View style={{ flex: 1 }}>
       <MapScreen />
-      {/* Settings Button */}
       <TouchableOpacity
         style={{
           position: 'absolute',
@@ -31,7 +30,6 @@ export default function HomeScreen() {
         <Ionicons name="settings" size={24} color="#90EE90" />
       </TouchableOpacity>
 
-      {/* Crosshair Button */}
       <TouchableOpacity
         style={{
           position: 'absolute',
