@@ -106,7 +106,6 @@ export default function OnboardingScreen() {
         ))}
       </View>
 
-      {/* Button */}
       <View style={{ paddingHorizontal: 20, paddingBottom: 20 }}>
         <TouchableOpacity
           onPress={currentIndex < 2 ? handleNext : handleSignOut}
