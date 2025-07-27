@@ -13,11 +13,22 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
 
       <View className="px-6 pt-6">
         <TouchableOpacity 
-          className="flex-row items-center bg-[#90EE90] rounded-xl px-4 py-3"
+          className="flex-row items-center py-4 px-4 border border-gray-100 rounded-xl active:bg-gray-50"
           onPress={() => {}}
         >
-          <MaterialCommunityIcons name="map-marker-plus" size={24} color="white" />
-          <Text className="ml-2 text-white font-medium text-base">Create</Text>
+          <View className="bg-[#f0fdf4] p-2 rounded-lg">
+            <MaterialCommunityIcons name="map-marker-plus" size={24} color="#90EE90" />
+          </View>
+          <View className="ml-3">
+            <Text className="text-base font-medium text-gray-800">Create</Text>
+            <Text className="text-sm text-gray-500">Add a new geofence location</Text>
+          </View>
+          <MaterialCommunityIcons 
+            name="chevron-right" 
+            size={24} 
+            color="#666" 
+            style={{ marginLeft: 'auto' }}
+          />
         </TouchableOpacity>
       </View>
     </View>
