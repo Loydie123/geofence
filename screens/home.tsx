@@ -27,7 +27,7 @@ export default function HomeScreen() {
           console.log('Settings pressed');
         }}
       >
-        <Ionicons name="settings-outline" size={24} color="#4A90E2" />
+        <Ionicons name="settings" size={24} color="#90EE90" />
       </TouchableOpacity>
     </View>
   );
