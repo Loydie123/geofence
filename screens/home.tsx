@@ -66,7 +66,7 @@ export default function HomeScreen() {
           <MapView 
             style={{ flex: 1 }}
             initialRegion={{
-              latitude: 14.5995,  // Philippines coordinates
+              latitude: 14.5995,
               longitude: 120.9842,
               latitudeDelta: 0.0922,
               longitudeDelta: 0.0421,
