@@ -3,7 +3,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function SettingsScreen({ onClose }: { onClose: () => void }) {
   return (
-    <View className="flex-1 bg-white">
+    <View className="flex-1 bg-gray-50">
       <View className="bg-white shadow-sm">
         <View className="flex-row items-center justify-between px-6 pt-14 pb-4">
           <View className="flex-row items-center">
@@ -21,7 +21,7 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
 
       <View className="px-6 pt-6">
         <TouchableOpacity 
-          className="flex-row items-center py-4 px-4 border border-gray-100 rounded-xl active:bg-gray-50 mb-2"
+          className="flex-row items-center py-4 px-4 bg-white border border-gray-100 rounded-xl active:bg-gray-50 mb-2"
           onPress={() => {}}
         >
           <View className="bg-[#f0fdf4] p-2 rounded-lg">
@@ -40,7 +40,7 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
         </TouchableOpacity>
 
         <TouchableOpacity 
-          className="flex-row items-center py-4 px-4 border border-gray-100 rounded-xl active:bg-gray-50"
+          className="flex-row items-center py-4 px-4 bg-white border border-gray-100 rounded-xl active:bg-gray-50"
           onPress={() => {}}
         >
           <View className="bg-[#f0fdf4] p-2 rounded-lg">
