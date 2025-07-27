@@ -4,11 +4,19 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 export default function SettingsScreen({ onClose }: { onClose: () => void }) {
   return (
     <View className="flex-1 bg-white">
-      <View className="flex-row items-center justify-between px-6 pt-14 pb-4 border-b border-gray-100">
-        <Text className="text-xl font-semibold">CommuteSafe</Text>
-        <TouchableOpacity onPress={onClose}>
-          <MaterialCommunityIcons name="close" size={24} color="#666" />
-        </TouchableOpacity>
+      <View className="bg-white shadow-sm">
+        <View className="flex-row items-center justify-between px-6 pt-14 pb-4">
+          <View className="flex-row items-center">
+            <MaterialCommunityIcons name="shield-check" size={28} color="#90EE90" />
+            <Text className="text-xl font-semibold ml-2">CommuteSafe</Text>
+          </View>
+          <TouchableOpacity 
+            className="w-8 h-8 items-center justify-center rounded-full bg-gray-50"
+            onPress={onClose}
+          >
+            <MaterialCommunityIcons name="close" size={20} color="#666" />
+          </TouchableOpacity>
+        </View>
       </View>
 
       <View className="px-6 pt-6">
