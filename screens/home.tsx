@@ -45,7 +45,6 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </View>
 
-        {/* Action Buttons */}
         <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
           <TouchableOpacity 
             style={{
