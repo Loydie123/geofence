@@ -1,7 +1,42 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useOAuth } from '@clerk/clerk-expo';
+import * as WebBrowser from 'expo-web-browser';
 
 export default function LandingPage() {
+  WebBrowser.maybeCompleteAuthSession();
+
+  const { startOAuthFlow: googleAuth } = useOAuth({ strategy: 'oauth_google' });
+  const { startOAuthFlow: facebookAuth } = useOAuth({ strategy: 'oauth_facebook' });
+
+  const onPressGoogle = async () => {
+    try {
+      const { createdSessionId, signIn, signUp, setActive } = await googleAuth();
+
+      if (createdSessionId) {
+        setActive!({ session: createdSessionId });
+      } else {
+        // Use signIn or signUp for next steps such as MFA
+      }
+    } catch (err) {
+      console.error('OAuth error', err);
+    }
+  };
+
+  const onPressFacebook = async () => {
+    try {
+      const { createdSessionId, signIn, signUp, setActive } = await facebookAuth();
+
+      if (createdSessionId) {
+        setActive!({ session: createdSessionId });
+      } else {
+        // Use signIn or signUp for next steps such as MFA
+      }
+    } catch (err) {
+      console.error('OAuth error', err);
+    }
+  };
+
   return (
     <View className="flex-1">
       <LinearGradient
@@ -26,6 +61,7 @@ export default function LandingPage() {
             <TouchableOpacity 
               className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl py-4 px-6 flex-row items-center relative shadow-sm"
               activeOpacity={0.7}
+              onPress={onPressGoogle}
             >
               <View className="absolute left-6">
                 <Image 
@@ -45,6 +81,7 @@ export default function LandingPage() {
             <TouchableOpacity 
               className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl py-4 px-6 flex-row items-center relative shadow-sm"
               activeOpacity={0.7}
+              onPress={onPressFacebook}
             >
               <View className="absolute left-6">
                 <Image 
