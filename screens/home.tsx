@@ -10,7 +10,7 @@ export default function HomeScreen() {
         style={{
           position: 'absolute',
           top: 50,
-          right: 20,
+          left: 20,
           backgroundColor: 'white',
           borderRadius: 30,
           padding: 10,
