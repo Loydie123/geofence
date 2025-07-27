@@ -2,7 +2,6 @@ import { View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { gradients } from '../constants/theme';
 
-// Decorative bubble styles
 const bubbleStyles = [
   {
     size: 160,
