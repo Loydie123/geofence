@@ -1,4 +1,5 @@
-import { View } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import MapScreen from '../components/maps';
 import MapButtons from '../components/maps/MapButtons';
 
@@ -28,6 +29,58 @@ export default function HomeScreen() {
         shadowRadius: 4,
         elevation: 5,
       }}>
+        {/* Header */}
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
+          <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Quick Actions</Text>
+          <TouchableOpacity>
+            <MaterialCommunityIcons name="dots-horizontal" size={24} color="#666" />
+          </TouchableOpacity>
+        </View>
+
+        {/* Action Buttons */}
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
+          <TouchableOpacity 
+            style={{
+              alignItems: 'center',
+              backgroundColor: '#f0f0f0',
+              padding: 15,
+              borderRadius: 15,
+              width: '30%'
+            }}
+            onPress={() => console.log('Start tracking')}
+          >
+            <MaterialCommunityIcons name="map-marker-path" size={28} color="#90EE90" />
+            <Text style={{ marginTop: 5, color: '#666' }}>Track</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={{
+              alignItems: 'center',
+              backgroundColor: '#f0f0f0',
+              padding: 15,
+              borderRadius: 15,
+              width: '30%'
+            }}
+            onPress={() => console.log('Add geofence')}
+          >
+            <MaterialCommunityIcons name="map-marker-radius" size={28} color="#90EE90" />
+            <Text style={{ marginTop: 5, color: '#666' }}>Add Fence</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={{
+              alignItems: 'center',
+              backgroundColor: '#f0f0f0',
+              padding: 15,
+              borderRadius: 15,
+              width: '30%'
+            }}
+            onPress={() => console.log('View history')}
+          >
+            <MaterialCommunityIcons name="history" size={28} color="#90EE90" />
+            <Text style={{ marginTop: 5, color: '#666' }}>History</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
