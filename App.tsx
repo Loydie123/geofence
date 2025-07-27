@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { ClerkProvider, useAuth } from '@clerk/clerk-expo';
 import * as SecureStore from 'expo-secure-store';
 import LandingPage from './components/landingpage';
-import HomePage from './components/home';
+import HomePage from './screens/home';
 
 import './global.css';
 
