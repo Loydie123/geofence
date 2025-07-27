@@ -16,7 +16,6 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
       </View>
 
       <View className="flex-1 px-6 pt-4">
-        {/* Account Section */}
         <View className="mb-8">
           <Text className="text-sm font-medium text-gray-400 mb-4">ACCOUNT</Text>
           <TouchableOpacity 
