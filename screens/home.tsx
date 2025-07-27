@@ -9,89 +9,29 @@ export default function HomeScreen() {
   const { user } = useUser();
 
   return (
-    <View style={{ flex: 1 }}>
+    <View className="flex-1">
       <LinearGradient
         colors={gradients.primary}
-        style={{ flex: 1 }}
+        className="flex-1"
       >
-        <View style={{ 
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: 160,
-          height: 160,
-          backgroundColor: colors.primaryLight,
-          opacity: 0.4,
-          borderRadius: 999,
-          transform: [
-            { translateX: -40 },
-            { translateY: -40 }
-          ]
-        }} />
-        <View style={{ 
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: 128,
-          height: 128,
-          backgroundColor: colors.primaryLighter,
-          opacity: 0.5,
-          borderRadius: 999,
-          transform: [
-            { translateX: 16 }
-          ]
-        }} />
-        <View style={{ 
-          position: 'absolute',
-          top: 0,
-          left: 48,
-          width: 112,
-          height: 112,
-          backgroundColor: colors.primaryLightest,
-          opacity: 0.45,
-          borderRadius: 999,
-          transform: [
-            { translateY: 8 }
-          ]
-        }} />
+        <View className="absolute top-0 left-0 w-40 h-40 bg-[#4ade80] opacity-40 rounded-full -translate-x-10 -translate-y-10" />
+        <View className="absolute top-0 left-0 w-32 h-32 bg-[#86efac] opacity-50 rounded-full translate-x-4" />
+        <View className="absolute top-0 left-12 w-28 h-28 bg-[#bbf7d0] opacity-45 rounded-full translate-y-2" />
 
-        <View style={{ flex: 1, padding: 20, justifyContent: 'center' }}>
-          <View style={{ 
-            backgroundColor: 'white',
-            padding: 24,
-            borderRadius: 20,
-            shadowColor: '#000',
-            shadowOffset: { width: 0, height: 2 },
-            shadowOpacity: 0.1,
-            shadowRadius: 8,
-            elevation: 3
-          }}>
-            <Text style={{ 
-              fontSize: 24,
-              fontWeight: 'bold',
-              color: colors.text.primary,
-              marginBottom: 8
-            }}>
+        <View className="flex-1 p-5 justify-center">
+          <View className="bg-white p-6 rounded-2xl shadow-lg">
+            <Text className="text-2xl font-bold text-gray-800 mb-2">
               Welcome back, {user?.firstName || 'User'}! 👋
             </Text>
-            <Text style={{ 
-              fontSize: 16,
-              color: colors.text.secondary,
-              marginBottom: 24
-            }}>
+            <Text className="text-base text-gray-600 mb-6">
               Your safety is our top priority. Set up your geofence zones to stay protected.
             </Text>
 
             <TouchableOpacity
               onPress={handleSignOut}
-              style={{
-                backgroundColor: colors.primary,
-                padding: 16,
-                borderRadius: 12,
-                alignItems: 'center'
-              }}
+              className="bg-green-500 py-4 px-6 rounded-xl items-center"
             >
-              <Text style={{ color: 'white', fontSize: 16, fontWeight: '600' }}>
+              <Text className="text-white text-base font-semibold">
                 Sign Out
               </Text>
             </TouchableOpacity>
