@@ -88,6 +88,21 @@ export default function HomeScreen() {
             <MaterialCommunityIcons name="cog" size={20} color="#666" />
           </TouchableOpacity>
         </View>
+
+        <View style={{
+          backgroundColor: 'white',
+          borderRadius: 8,
+          padding: 15,
+          flexDirection: 'row',
+          alignItems: 'center',
+          marginBottom: 10,
+          borderWidth: 1,
+          borderColor: '#f0f0f0',
+          height: 50,
+          justifyContent: 'space-between'
+        }}>
+          {/* Content will go here */}
+        </View>
       </View>
     </View>
   );
