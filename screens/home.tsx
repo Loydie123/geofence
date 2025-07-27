@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import { View, StatusBar } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { gradients } from '../constants/theme';
 import MapView from 'react-native-maps';
@@ -6,11 +6,12 @@ import MapView from 'react-native-maps';
 export default function HomeScreen() {
   return (
     <View style={{ flex: 1 }}>
+      <StatusBar translucent backgroundColor="transparent" />
       <LinearGradient
         colors={gradients.primary}
         style={{ flex: 1 }}
       >
-        <View style={{ height: '50%', marginTop: 50 }}>
+        <View style={{ height: '50%' }}>
           <MapView 
             style={{ flex: 1 }}
             initialRegion={{
