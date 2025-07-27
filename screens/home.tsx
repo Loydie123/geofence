@@ -31,7 +31,6 @@ const bubbleStyles = [
   }
 ];
 
-// Component for decorative bubbles
 function BackgroundBubbles() {
   return (
     <>
