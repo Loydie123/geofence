@@ -35,7 +35,6 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
           </TouchableOpacity>
         </View>
 
-        {/* Notifications Section */}
         <View className="mb-8">
           <Text className="text-sm font-medium text-gray-400 mb-4">NOTIFICATIONS</Text>
           <View className="flex-row items-center justify-between py-3">
