@@ -29,6 +29,17 @@ export default function HomeScreen() {
         shadowRadius: 4,
         elevation: 5,
       }}>
+        {/* Handle Line */}
+        <View style={{
+          width: 40,
+          height: 4,
+          backgroundColor: '#DDD',
+          borderRadius: 2,
+          alignSelf: 'center',
+          marginBottom: 20,
+          marginTop: -10,
+        }} />
+
         {/* Header */}
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
           <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Quick Actions</Text>
