@@ -70,7 +70,6 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
           </TouchableOpacity>
         </View>
 
-        {/* About Section */}
         <View>
           <Text className="text-sm font-medium text-gray-400 mb-4">ABOUT</Text>
           <TouchableOpacity 
