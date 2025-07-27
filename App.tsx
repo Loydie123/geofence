@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { ClerkProvider, useAuth } from '@clerk/clerk-expo';
 import { tokenCache, publishableKey } from './constants/clerk';
 import LandingPage from './components/landingpage';
-import HomePage from './screens/home';
+import OnboardingScreen from './screens/onboarding';
 
 import './global.css';
 
@@ -15,7 +15,7 @@ function MainContent() {
 
   return (
     <>
-      {isSignedIn ? <HomePage /> : <LandingPage />}
+      {isSignedIn ? <OnboardingScreen /> : <LandingPage />}
       <StatusBar style="auto" />
     </>
   );

@@ -2,8 +2,11 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import MapScreen from '../components/maps';
 import MapButtons from '../components/maps/MapButtons';
+import { useAuth } from '../hooks/useAuth';
 
 export default function HomeScreen() {
+  const { handleSignOut } = useAuth();
+
   return (
     <View style={{ flex: 1 }}>
       <MapScreen />
@@ -26,7 +29,7 @@ export default function HomeScreen() {
           shadowRadius: 3.84,
           elevation: 5,
         }}
-        onPress={() => console.log('Logout')}
+        onPress={handleSignOut}
       >
         <MaterialCommunityIcons name="logout" size={24} color="#FF4444" />
       </TouchableOpacity>

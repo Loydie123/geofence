@@ -1,20 +1,39 @@
-import { View, Text, TouchableOpacity, Image, useWindowDimensions, NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { LinearGradient } from 'expo-linear-gradient';
 import { colors, gradients } from '../constants/theme';
 import { onboardingSlides, bubbleStyles } from '../constants/onboarding';
 import { useOnboarding } from '../hooks/useOnboarding';
+import { useState } from 'react';
+import HomeScreen from './home';
 
 export default function OnboardingScreen() {
+  const [showHome, setShowHome] = useState(false);
   const {
     currentIndex,
     SCREEN_WIDTH,
     slidesRef,
     handleScroll,
     handleMomentumScrollEnd,
-    handleNext,
-    handleSkip,
+    handleNext: onNext,
+    handleSkip: onSkip,
   } = useOnboarding();
+
+  const handleNext = () => {
+    if (currentIndex === onboardingSlides.length - 1) {
+      setShowHome(true);
+    } else {
+      onNext();
+    }
+  };
+
+  const handleSkip = () => {
+    setShowHome(true);
+  };
+
+  if (showHome) {
+    return <HomeScreen />;
+  }
 
   return (
     <View style={{ flex: 1 }}>
