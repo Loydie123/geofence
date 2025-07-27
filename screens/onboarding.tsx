@@ -107,22 +107,14 @@ export default function OnboardingScreen() {
       </View>
 
       {/* Bottom Buttons */}
-      <View className="flex-row justify-between items-center px-4 pb-8">
+      <View className="px-4 pb-8">
         {currentIndex < slides.length - 1 ? (
-          <>
-            <TouchableOpacity
-              onPress={handleSkip}
-              className="py-3 px-8"
-            >
-              <Text className="text-gray-500 font-medium">Skip</Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={handleNext}
-              className="bg-green-500 py-3 px-8 rounded-full"
-            >
-              <Text className="text-white font-medium">Next</Text>
-            </TouchableOpacity>
-          </>
+          <TouchableOpacity
+            onPress={handleNext}
+            className="bg-green-500 py-3 px-8 rounded-full w-full"
+          >
+            <Text className="text-white font-medium text-center">Next</Text>
+          </TouchableOpacity>
         ) : (
           <TouchableOpacity
             onPress={handleSignOut}
