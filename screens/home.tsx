@@ -62,6 +62,11 @@ export default function HomeScreen() {
           marginBottom: 20,
           marginTop: -10,
         }} />
+
+        <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 20 }}>
+          <MaterialCommunityIcons name="bell-ring" size={24} color="#90EE90" />
+          <Text style={{ fontSize: 18, fontWeight: 'bold', marginLeft: 8 }}>Alert in <Text style={{ color: '#90EE90' }}>1.93km</Text></Text>
+        </View>
       </View>
     </View>
   );
