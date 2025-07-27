@@ -23,7 +23,6 @@ export default function HomeScreen() {
         </View>
         
         <View style={{ flex: 1, padding: 20 }}>
-          {/* Add your content for bottom half here */}
         </View>
       </LinearGradient>
     </View>
