@@ -104,7 +104,8 @@ export default function HomeScreen() {
           justifyContent: 'space-between'
         }}>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Text style={{ fontSize: 16, color: '#333' }}>Alert Name</Text>
+            <MaterialCommunityIcons name="bell-outline" size={20} color="#666" />
+            <Text style={{ marginLeft: 8, fontSize: 16, color: '#333' }}>Alert Name</Text>
           </View>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <TouchableOpacity style={{ marginRight: 12 }}>
