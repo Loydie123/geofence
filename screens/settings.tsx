@@ -11,9 +11,9 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
         </TouchableOpacity>
       </View>
 
-      <View className="px-6 pt-6 space-y-4">
+      <View className="px-6 pt-6">
         <TouchableOpacity 
-          className="flex-row items-center py-4 px-4 border border-gray-100 rounded-xl active:bg-gray-50"
+          className="flex-row items-center py-4 px-4 border border-gray-100 rounded-xl active:bg-gray-50 mb-2"
           onPress={() => {}}
         >
           <View className="bg-[#f0fdf4] p-2 rounded-lg">
