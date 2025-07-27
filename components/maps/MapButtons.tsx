@@ -84,6 +84,31 @@ export default function MapButtons() {
       >
         <MaterialCommunityIcons name="layers-triple" size={28} color="#90EE90" />
       </TouchableOpacity>
+
+      <TouchableOpacity
+        style={{
+          position: 'absolute',
+          top: '50%',
+          right: 20,
+          backgroundColor: 'white',
+          borderRadius: 30,
+          padding: 10,
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 0,
+            height: 2,
+          },
+          shadowOpacity: 0.25,
+          shadowRadius: 3.84,
+          elevation: 5,
+          transform: [{ translateY: 100 }],
+        }}
+        onPress={() => {
+          console.log('Share pressed');
+        }}
+      >
+        <MaterialCommunityIcons name="share-variant" size={28} color="#90EE90" />
+      </TouchableOpacity>
     </View>
   );
 } 
