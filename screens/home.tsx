@@ -55,7 +55,6 @@ export default function HomeScreen() {
           ]
         }} />
 
-        {/* Content */}
         <View style={{ flex: 1, padding: 20, justifyContent: 'center' }}>
           <View style={{ 
             backgroundColor: 'white',
