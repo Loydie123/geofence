@@ -15,7 +15,6 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
         </TouchableOpacity>
       </View>
 
-      {/* Settings List */}
       <View className="flex-1 px-6 pt-4">
         {/* Account Section */}
         <View className="mb-8">
