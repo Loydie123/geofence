@@ -111,12 +111,13 @@ export default function HomeScreen() {
             <TouchableOpacity style={{ marginRight: 12 }}>
               <MaterialCommunityIcons name="pencil" size={20} color="#666" />
             </TouchableOpacity>
-            <Switch
-              trackColor={{ false: '#D1D5DB', true: '#BBF7D0' }}
-              thumbColor={isAlertEnabled ? '#90EE90' : '#9CA3AF'}
-              onValueChange={() => setIsAlertEnabled(prev => !prev)}
-              value={isAlertEnabled}
-            />
+            <TouchableOpacity onPress={() => setIsAlertEnabled(prev => !prev)}>
+              <MaterialCommunityIcons 
+                name="power" 
+                size={20} 
+                color={isAlertEnabled ? '#90EE90' : '#666'} 
+              />
+            </TouchableOpacity>
           </View>
         </View>
       </View>
