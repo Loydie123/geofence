@@ -38,7 +38,6 @@ export default function HomeScreen() {
           marginTop: -10,
         }} />
 
-        {/* Header */}
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
           <Text style={{ fontSize: 18, fontWeight: 'bold' }}>Quick Actions</Text>
           <TouchableOpacity>
