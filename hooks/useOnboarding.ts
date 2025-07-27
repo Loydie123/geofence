@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react';
 import { NativeScrollEvent, NativeSyntheticEvent, useWindowDimensions } from 'react-native';
-import { useAuth } from '@clerk/clerk-expo';
 import Animated from 'react-native-reanimated';
 import { onboardingSlides } from '../constants/onboarding';
 
@@ -8,7 +7,6 @@ export const useOnboarding = () => {
   const { width: SCREEN_WIDTH } = useWindowDimensions();
   const [currentIndex, setCurrentIndex] = useState(0);
   const slidesRef = useRef<Animated.ScrollView>(null);
-  const { signOut } = useAuth();
 
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const contentOffset = event.nativeEvent.contentOffset.x;
@@ -37,14 +35,6 @@ export const useOnboarding = () => {
     setCurrentIndex(lastIndex);
   };
 
-  const handleSignOut = async () => {
-    try {
-      await signOut();
-    } catch (err) {
-      console.error('Error signing out:', err);
-    }
-  };
-
   return {
     currentIndex,
     SCREEN_WIDTH,
@@ -53,6 +43,5 @@ export const useOnboarding = () => {
     handleMomentumScrollEnd,
     handleNext,
     handleSkip,
-    handleSignOut,
   };
 }; 

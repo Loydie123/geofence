@@ -1,19 +1,12 @@
 import { View, Text, TouchableOpacity } from 'react-native';
-import { useAuth, useUser } from '@clerk/clerk-expo';
+import { useUser } from '@clerk/clerk-expo';
 import { LinearGradient } from 'expo-linear-gradient';
 import { colors, gradients } from '../constants/theme';
+import { useAuth } from '../hooks/useAuth';
 
 export default function HomeScreen() {
-  const { signOut } = useAuth();
+  const { handleSignOut } = useAuth();
   const { user } = useUser();
-
-  const handleSignOut = async () => {
-    try {
-      await signOut();
-    } catch (err) {
-      console.error('Error signing out:', err);
-    }
-  };
 
   return (
     <View style={{ flex: 1 }}>
