@@ -118,6 +118,25 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
         </TouchableOpacity>
 
         <Text className="text-base font-medium text-gray-800 mt-8 mb-4">App</Text>
+
+        <TouchableOpacity 
+          className="flex-row items-center py-4 px-4 bg-white border border-gray-100 rounded-xl active:bg-gray-50"
+          onPress={() => {}}
+        >
+          <View className="bg-[#f0fdf4] p-2 rounded-lg">
+            <MaterialCommunityIcons name="lightbulb" size={24} color="#90EE90" />
+          </View>
+          <View className="ml-3">
+            <Text className="text-base font-medium text-gray-800">Tips</Text>
+            <Text className="text-sm text-gray-500">Learn how to use the app</Text>
+          </View>
+          <MaterialCommunityIcons 
+            name="chevron-right" 
+            size={24} 
+            color="#666" 
+            style={{ marginLeft: 'auto' }}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
