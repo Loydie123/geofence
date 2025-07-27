@@ -1,7 +1,11 @@
 import { View, TouchableOpacity } from 'react-native';
+import { useState } from 'react';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import SettingsModal from '../modals/SettingsModal';
 
 export default function MapButtons() {
+  const [isSettingsVisible, setIsSettingsVisible] = useState(false);
+
   return (
     <View style={{
       position: 'absolute',
@@ -28,10 +32,15 @@ export default function MapButtons() {
           shadowRadius: 3.84,
           elevation: 5,
         }}
-        onPress={() => {}}
+        onPress={() => setIsSettingsVisible(true)}
       >
         <Ionicons name="settings" size={24} color="#90EE90" />
       </TouchableOpacity>
+
+      <SettingsModal 
+        visible={isSettingsVisible}
+        onClose={() => setIsSettingsVisible(false)}
+      />
 
       <TouchableOpacity
         style={{
