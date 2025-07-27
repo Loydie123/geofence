@@ -103,19 +103,55 @@ export default function OnboardingScreen() {
       </View>
 
       <View style={{ paddingHorizontal: 20, paddingBottom: 20 }}>
-        <TouchableOpacity
-          onPress={currentIndex < 2 ? handleNext : handleSignOut}
-          style={{
-            backgroundColor: '#22c55e',
-            padding: 16,
-            borderRadius: 999,
-            alignItems: 'center'
-          }}
-        >
-          <Text style={{ color: 'white', fontSize: 16, fontWeight: '600' }}>
-            {currentIndex < 2 ? 'Next' : 'Get Started'}
-          </Text>
-        </TouchableOpacity>
+        {currentIndex < 2 ? (
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <TouchableOpacity
+              onPress={() => {
+                slidesRef.current?.scrollTo({ x: SCREEN_WIDTH * 2, animated: true });
+                setCurrentIndex(2);
+              }}
+              style={{
+                padding: 16,
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              <Text style={{ color: '#666', fontSize: 16, fontWeight: '500' }}>
+                Skip
+              </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={handleNext}
+              style={{
+                backgroundColor: '#22c55e',
+                padding: 16,
+                borderRadius: 999,
+                alignItems: 'center',
+                paddingHorizontal: 32
+              }}
+            >
+              <Text style={{ color: 'white', fontSize: 16, fontWeight: '600' }}>
+                Next
+              </Text>
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <TouchableOpacity
+            onPress={handleSignOut}
+            style={{
+              backgroundColor: '#22c55e',
+              padding: 16,
+              borderRadius: 999,
+              alignItems: 'center',
+              width: '100%'
+            }}
+          >
+            <Text style={{ color: 'white', fontSize: 16, fontWeight: '600' }}>
+              Get Started
+            </Text>
+          </TouchableOpacity>
+        )}
       </View>
     </View>
   );
