@@ -61,7 +61,6 @@ export default function HomeScreen() {
         style={{ flex: 1 }}
       >
         <BackgroundBubbles />
-        {/* Content will go here */}
       </LinearGradient>
     </View>
   );
