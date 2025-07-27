@@ -16,7 +16,6 @@ export default function LandingPage() {
       if (createdSessionId && setActive) {
         await setActive({ session: createdSessionId });
       } else {
-        // Use signIn or signUp for next steps such as MFA
       }
     } catch (err) {
       console.error('OAuth error', err);
