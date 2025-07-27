@@ -42,7 +42,7 @@ export default function HomeScreen() {
         left: 0,
         right: 0,
         backgroundColor: 'white',
-        height: 200,
+        height: 220,
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         padding: 20,
