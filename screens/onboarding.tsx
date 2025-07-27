@@ -106,7 +106,6 @@ export default function OnboardingScreen() {
         ))}
       </View>
 
-      {/* Bottom Buttons */}
       <View className="px-4 pb-8">
         {currentIndex < slides.length - 1 ? (
           <TouchableOpacity
