@@ -94,7 +94,6 @@ export default function OnboardingScreen() {
         ))}
       </Animated.ScrollView>
 
-      {/* Pagination */}
       <View className="flex-row justify-center items-center space-x-2 mb-4">
         {slides.map((_, index) => (
           <View
