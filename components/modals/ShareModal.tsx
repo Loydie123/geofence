@@ -1,5 +1,6 @@
-import { Modal, View, Text, TouchableOpacity } from 'react-native';
+import { Modal, View, Text, TouchableOpacity, Switch } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useState } from 'react';
 
 interface ShareModalProps {
   visible: boolean;
@@ -7,6 +8,8 @@ interface ShareModalProps {
 }
 
 export default function ShareModal({ visible, onClose }: ShareModalProps) {
+  const [isEnabled, setIsEnabled] = useState(false);
+
   return (
     <Modal
       transparent={true}
@@ -29,7 +32,20 @@ export default function ShareModal({ visible, onClose }: ShareModalProps) {
           </View>
 
           <View className="p-6">
-            {/* Content will go here */}
+            <View className="flex-row items-center justify-between">
+              <View>
+                <Text className="text-base font-medium text-gray-800">Location Sharing</Text>
+                <Text className="text-sm text-gray-500 mt-1">
+                  {isEnabled ? 'Your location is visible to friends' : 'Your location is private'}
+                </Text>
+              </View>
+              <Switch
+                trackColor={{ false: '#D1D5DB', true: '#BBF7D0' }}
+                thumbColor={isEnabled ? '#90EE90' : '#9CA3AF'}
+                onValueChange={() => setIsEnabled(prev => !prev)}
+                value={isEnabled}
+              />
+            </View>
           </View>
         </View>
       </View>
