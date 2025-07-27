@@ -9,7 +9,6 @@ export default function HomeScreen() {
       <MapScreen />
       <MapButtons />
       
-      {/* Bottom Container */}
       <View style={{
         position: 'absolute',
         bottom: 0,
