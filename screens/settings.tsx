@@ -10,6 +10,16 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
           <MaterialCommunityIcons name="close" size={24} color="#666" />
         </TouchableOpacity>
       </View>
+
+      <View className="px-6 pt-6">
+        <TouchableOpacity 
+          className="flex-row items-center bg-[#90EE90] rounded-xl px-4 py-3"
+          onPress={() => {}}
+        >
+          <MaterialCommunityIcons name="map-marker-plus" size={24} color="white" />
+          <Text className="ml-2 text-white font-medium text-base">Create</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 } 
