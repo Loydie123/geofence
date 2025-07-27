@@ -51,7 +51,6 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
           </View>
         </View>
 
-        {/* Geofence Settings */}
         <View className="mb-8">
           <Text className="text-sm font-medium text-gray-400 mb-4">GEOFENCE</Text>
           <TouchableOpacity 
