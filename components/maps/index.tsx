@@ -1,5 +1,5 @@
 import { View, StatusBar } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import MapView from 'react-native-maps';
 
 export default function MapScreen() {
   return (
@@ -13,14 +13,7 @@ export default function MapScreen() {
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
-      >
-        <Marker
-          coordinate={{
-            latitude: 14.5995,
-            longitude: 120.9842,
-          }}
-        />
-      </MapView>
+      />
     </View>
   );
 } 
