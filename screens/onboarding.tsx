@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, useWindowDimensions } from 'react-native';
+import { View, Text, TouchableOpacity, Image, useWindowDimensions, NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
 import { useRef, useState } from 'react';
 import { useAuth } from '@clerk/clerk-expo';
 import Animated, { 
@@ -13,11 +13,19 @@ export default function OnboardingScreen() {
   const slidesRef = useRef<Animated.ScrollView>(null);
   const { signOut } = useAuth();
 
-  const scrollHandler = useAnimatedScrollHandler({
-    onScroll: (event) => {
-      scrollX.value = event.contentOffset.x;
-    },
-  });
+  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const contentOffset = event.nativeEvent.contentOffset.x;
+    const index = Math.round(contentOffset / SCREEN_WIDTH);
+    if (index !== currentIndex) {
+      setCurrentIndex(index);
+    }
+  };
+
+  const handleMomentumScrollEnd = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const contentOffset = event.nativeEvent.contentOffset.x;
+    const index = Math.round(contentOffset / SCREEN_WIDTH);
+    setCurrentIndex(index);
+  };
 
   const handleNext = () => {
     if (currentIndex < 2) {
@@ -41,7 +49,8 @@ export default function OnboardingScreen() {
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
-        onScroll={scrollHandler}
+        onMomentumScrollEnd={handleMomentumScrollEnd}
+        onScroll={handleScroll}
         scrollEventThrottle={16}
       >
         <View style={{ width: SCREEN_WIDTH, alignItems: 'center', justifyContent: 'center', flex: 1 }}>
