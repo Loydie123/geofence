@@ -62,7 +62,6 @@ export default function HomeScreen() {
         style={{ flex: 1 }}
       >
         <BackgroundBubbles />
-        {/* Top Half - Map */}
         <View style={{ height: '50%', marginTop: 50 }}>
           <MapView 
             style={{ flex: 1 }}
