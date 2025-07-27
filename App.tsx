@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { ClerkProvider } from '@clerk/clerk-expo';
+import { ClerkProvider, useAuth } from '@clerk/clerk-expo';
 import * as SecureStore from 'expo-secure-store';
 import LandingPage from './components/landingpage';
+import HomePage from './components/home';
 
 import './global.css';
 
@@ -30,11 +31,25 @@ if (!publishableKey) {
   );
 }
 
+function AppContent() {
+  const { isLoaded, isSignedIn } = useAuth();
+
+  if (!isLoaded) {
+    return null;
+  }
+
+  return (
+    <>
+      {isSignedIn ? <HomePage /> : <LandingPage />}
+      <StatusBar style="auto" />
+    </>
+  );
+}
+
 export default function App() {
   return (
     <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>
-      <LandingPage />
-      <StatusBar style="auto" />
+      <AppContent />
     </ClerkProvider>
   );
 }

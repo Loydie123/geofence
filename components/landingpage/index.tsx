@@ -13,9 +13,10 @@ export default function LandingPage() {
     try {
       const { createdSessionId, signIn, signUp, setActive } = await googleAuth();
 
-      if (createdSessionId) {
-        setActive!({ session: createdSessionId });
+      if (createdSessionId && setActive) {
+        await setActive({ session: createdSessionId });
       } else {
+        // Use signIn or signUp for next steps such as MFA
       }
     } catch (err) {
       console.error('OAuth error', err);
@@ -26,9 +27,10 @@ export default function LandingPage() {
     try {
       const { createdSessionId, signIn, signUp, setActive } = await facebookAuth();
 
-      if (createdSessionId) {
-        setActive!({ session: createdSessionId });
+      if (createdSessionId && setActive) {
+        await setActive({ session: createdSessionId });
       } else {
+        // Use signIn or signUp for next steps such as MFA
       }
     } catch (err) {
       console.error('OAuth error', err);
