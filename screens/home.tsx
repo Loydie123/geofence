@@ -14,7 +14,6 @@ export default function HomeScreen() {
         colors={gradients.primary}
         style={{ flex: 1 }}
       >
-        {/* Decorative Bubbles */}
         <View style={{ 
           position: 'absolute',
           top: 0,
