@@ -11,7 +11,7 @@ export default function HomeScreen() {
         colors={gradients.primary}
         style={{ flex: 1 }}
       >
-        <View style={{ height: '50%' }}>
+        <View style={{ height: '60%' }}>
           <MapView 
             style={{ flex: 1 }}
             initialRegion={{
