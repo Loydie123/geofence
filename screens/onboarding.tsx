@@ -90,7 +90,6 @@ export default function OnboardingScreen() {
         </View>
       </Animated.ScrollView>
 
-      {/* Pagination Dots */}
       <View style={{ flexDirection: 'row', justifyContent: 'center', marginBottom: 20 }}>
         {[0, 1, 2].map((index) => (
           <View
