@@ -1,11 +1,13 @@
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Switch } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import MapScreen from '../components/maps';
 import MapButtons from '../components/maps/MapButtons';
 import { useAuth } from '../hooks/useAuth';
+import { useState } from 'react';
 
 export default function HomeScreen() {
   const { handleSignOut } = useAuth();
+  const [isAlertEnabled, setIsAlertEnabled] = useState(true);
 
   return (
     <View style={{ flex: 1 }}>
@@ -101,7 +103,20 @@ export default function HomeScreen() {
           height: 50,
           justifyContent: 'space-between'
         }}>
-          {/* Content will go here */}
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ fontSize: 16, color: '#333' }}>Alert Name</Text>
+          </View>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <TouchableOpacity style={{ marginRight: 12 }}>
+              <MaterialCommunityIcons name="pencil" size={20} color="#666" />
+            </TouchableOpacity>
+            <Switch
+              trackColor={{ false: '#D1D5DB', true: '#BBF7D0' }}
+              thumbColor={isAlertEnabled ? '#90EE90' : '#9CA3AF'}
+              onValueChange={() => setIsAlertEnabled(prev => !prev)}
+              value={isAlertEnabled}
+            />
+          </View>
         </View>
       </View>
     </View>
