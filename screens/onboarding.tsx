@@ -74,7 +74,6 @@ export default function OnboardingScreen() {
           </Text>
         </View>
 
-        {/* Slide 3 */}
         <View style={{ width: SCREEN_WIDTH, alignItems: 'center', paddingTop: 50 }}>
           <Image
             source={require('../assets/images/onboarding/3.png')}
