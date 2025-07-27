@@ -6,27 +6,6 @@ import Animated, {
   useSharedValue,
 } from 'react-native-reanimated';
 
-const slides = [
-  {
-    id: '1',
-    image: require('../assets/images/onboarding/1.png'),
-    title: 'Welcome to CommuteSafe',
-    description: 'Your personal safety companion for every journey.',
-  },
-  {
-    id: '2',
-    image: require('../assets/images/onboarding/2.jpeg'),
-    title: 'Smart Geofencing',
-    description: 'Set up custom safety zones and get real-time alerts when needed.',
-  },
-  {
-    id: '3',
-    image: require('../assets/images/onboarding/3.png'),
-    title: 'Stay Connected',
-    description: 'Keep your loved ones informed about your safe commute.',
-  },
-];
-
 export default function OnboardingScreen() {
   const { width: SCREEN_WIDTH } = useWindowDimensions();
   const scrollX = useSharedValue(0);
@@ -41,15 +20,10 @@ export default function OnboardingScreen() {
   });
 
   const handleNext = () => {
-    if (currentIndex < slides.length - 1) {
+    if (currentIndex < 2) {
       slidesRef.current?.scrollTo({ x: SCREEN_WIDTH * (currentIndex + 1), animated: true });
       setCurrentIndex(currentIndex + 1);
     }
-  };
-
-  const handleSkip = () => {
-    slidesRef.current?.scrollTo({ x: SCREEN_WIDTH * (slides.length - 1), animated: true });
-    setCurrentIndex(slides.length - 1);
   };
 
   const handleSignOut = async () => {
@@ -61,7 +35,7 @@ export default function OnboardingScreen() {
   };
 
   return (
-    <View className="flex-1 bg-white">
+    <View style={{ flex: 1, backgroundColor: 'white' }}>
       <Animated.ScrollView
         ref={slidesRef}
         horizontal
@@ -69,58 +43,84 @@ export default function OnboardingScreen() {
         showsHorizontalScrollIndicator={false}
         onScroll={scrollHandler}
         scrollEventThrottle={16}
-        className="flex-1"
       >
-        {slides.map((slide, index) => (
-          <View 
-            key={slide.id} 
-            style={{ width: SCREEN_WIDTH }}
-            className="flex-1 items-center justify-center px-4"
-          >
-            <View className="w-full aspect-square mb-8">
-              <Image
-                source={slide.image}
-                className="w-full h-full"
-                resizeMode="contain"
-              />
-            </View>
-            <Text className="text-2xl font-bold text-gray-800 text-center mb-4">
-              {slide.title}
-            </Text>
-            <Text className="text-base text-gray-600 text-center px-4 mb-8">
-              {slide.description}
-            </Text>
-          </View>
-        ))}
+        {/* Slide 1 */}
+        <View style={{ width: SCREEN_WIDTH, alignItems: 'center', paddingTop: 50 }}>
+          <Image
+            source={require('../assets/images/onboarding/1.png')}
+            style={{ width: SCREEN_WIDTH * 0.8, height: SCREEN_WIDTH * 0.8 }}
+            resizeMode="contain"
+          />
+          <Text style={{ fontSize: 24, fontWeight: 'bold', marginTop: 20, marginBottom: 10 }}>
+            Welcome to CommuteSafe
+          </Text>
+          <Text style={{ fontSize: 16, color: '#666', textAlign: 'center', paddingHorizontal: 20 }}>
+            Your personal safety companion for every journey.
+          </Text>
+        </View>
+
+        {/* Slide 2 */}
+        <View style={{ width: SCREEN_WIDTH, alignItems: 'center', paddingTop: 50 }}>
+          <Image
+            source={require('../assets/images/onboarding/2.jpeg')}
+            style={{ width: SCREEN_WIDTH * 0.8, height: SCREEN_WIDTH * 0.8 }}
+            resizeMode="contain"
+          />
+          <Text style={{ fontSize: 24, fontWeight: 'bold', marginTop: 20, marginBottom: 10 }}>
+            Smart Geofencing
+          </Text>
+          <Text style={{ fontSize: 16, color: '#666', textAlign: 'center', paddingHorizontal: 20 }}>
+            Set up custom safety zones and get real-time alerts when needed.
+          </Text>
+        </View>
+
+        {/* Slide 3 */}
+        <View style={{ width: SCREEN_WIDTH, alignItems: 'center', paddingTop: 50 }}>
+          <Image
+            source={require('../assets/images/onboarding/3.png')}
+            style={{ width: SCREEN_WIDTH * 0.8, height: SCREEN_WIDTH * 0.8 }}
+            resizeMode="contain"
+          />
+          <Text style={{ fontSize: 24, fontWeight: 'bold', marginTop: 20, marginBottom: 10 }}>
+            Stay Connected
+          </Text>
+          <Text style={{ fontSize: 16, color: '#666', textAlign: 'center', paddingHorizontal: 20 }}>
+            Keep your loved ones informed about your safe commute.
+          </Text>
+        </View>
       </Animated.ScrollView>
 
-      <View className="flex-row justify-center items-center space-x-2 mb-4">
-        {slides.map((_, index) => (
+      {/* Pagination Dots */}
+      <View style={{ flexDirection: 'row', justifyContent: 'center', marginBottom: 20 }}>
+        {[0, 1, 2].map((index) => (
           <View
             key={index}
-            className={`h-2 rounded-full ${
-              currentIndex === index ? 'w-6 bg-green-500' : 'w-2 bg-gray-300'
-            }`}
+            style={{
+              width: currentIndex === index ? 24 : 8,
+              height: 8,
+              borderRadius: 4,
+              backgroundColor: currentIndex === index ? '#22c55e' : '#e5e7eb',
+              marginHorizontal: 4
+            }}
           />
         ))}
       </View>
 
-      <View className="px-4 pb-8">
-        {currentIndex < slides.length - 1 ? (
-          <TouchableOpacity
-            onPress={handleNext}
-            className="bg-green-500 py-3 px-8 rounded-full w-full"
-          >
-            <Text className="text-white font-medium text-center">Next</Text>
-          </TouchableOpacity>
-        ) : (
-          <TouchableOpacity
-            onPress={handleSignOut}
-            className="bg-green-500 py-3 px-8 rounded-full w-full"
-          >
-            <Text className="text-white font-medium text-center">Get Started</Text>
-          </TouchableOpacity>
-        )}
+      {/* Button */}
+      <View style={{ paddingHorizontal: 20, paddingBottom: 20 }}>
+        <TouchableOpacity
+          onPress={currentIndex < 2 ? handleNext : handleSignOut}
+          style={{
+            backgroundColor: '#22c55e',
+            padding: 16,
+            borderRadius: 999,
+            alignItems: 'center'
+          }}
+        >
+          <Text style={{ color: 'white', fontSize: 16, fontWeight: '600' }}>
+            {currentIndex < 2 ? 'Next' : 'Get Started'}
+          </Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
