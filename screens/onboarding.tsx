@@ -44,7 +44,6 @@ export default function OnboardingScreen() {
         onScroll={scrollHandler}
         scrollEventThrottle={16}
       >
-        {/* Slide 1 */}
         <View style={{ width: SCREEN_WIDTH, alignItems: 'center', paddingTop: 50 }}>
           <Image
             source={require('../assets/images/onboarding/1.png')}
