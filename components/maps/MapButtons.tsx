@@ -2,9 +2,11 @@ import { View, TouchableOpacity } from 'react-native';
 import { useState } from 'react';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import SettingsModal from '../modals/SettingsModal';
+import ShareModal from '../modals/ShareModal';
 
 export default function MapButtons() {
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
+  const [isShareVisible, setIsShareVisible] = useState(false);
 
   return (
     <View style={{
@@ -106,10 +108,15 @@ export default function MapButtons() {
           elevation: 5,
           transform: [{ translateY: 100 }],
         }}
-        onPress={() => {}}
+        onPress={() => setIsShareVisible(true)}
       >
         <MaterialCommunityIcons name="share-variant" size={28} color="#90EE90" />
       </TouchableOpacity>
+
+      <ShareModal 
+        visible={isShareVisible}
+        onClose={() => setIsShareVisible(false)}
+      />
 
       <TouchableOpacity
         style={{
