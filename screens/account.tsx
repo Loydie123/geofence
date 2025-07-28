@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, Image, ScrollView, Switch } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useState } from 'react';
+import { useAuth } from '../hooks/useAuth';
 
 interface AccountSetting {
   id: string;
@@ -16,12 +17,16 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
   const [locationEnabled, setLocationEnabled] = useState(true);
   const [isCodeVisible, setIsCodeVisible] = useState(false);
+  const { handleSignOut } = useAuth();
 
   const friendCode = 'COMM-1234-SAFE';
   const maskedCode = '••••-••••-••••';
 
-  const handleSignOut = () => {
-    onClose();
+  const onSignOut = async () => {
+    const { success } = await handleSignOut();
+    if (success) {
+      onClose();
+    }
   };
 
   const settings: AccountSetting[] = [
@@ -166,7 +171,7 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
 
           <TouchableOpacity 
             className="mt-6 mb-8 bg-red-50 rounded-xl p-4 flex-row items-center justify-center"
-            onPress={handleSignOut}
+            onPress={onSignOut}
           >
             <MaterialCommunityIcons name="logout" size={20} color="#FF6B6B" />
             <Text className="ml-2 text-[#FF6B6B] font-medium">Sign Out</Text>
