@@ -67,7 +67,6 @@ export default function TrackFriendsScreen({ onClose }: { onClose: () => void })
             />
           </View>
 
-          {/* Add Friend Button */}
           <TouchableOpacity 
             className="flex-row items-center py-4 px-4 bg-white border border-gray-100 rounded-xl active:bg-gray-50 mb-6"
             onPress={() => {}}
