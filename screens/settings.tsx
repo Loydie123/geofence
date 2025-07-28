@@ -1,10 +1,12 @@
 import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useState } from 'react';
+import AccountModal from '../components/modals/AccountModal';
 import TrackFriendsModal from '../components/modals/TrackFriendsModal';
 
 export default function SettingsScreen({ onClose }: { onClose: () => void }) {
   const [isTrackFriendsVisible, setIsTrackFriendsVisible] = useState(false);
+  const [isAccountModalVisible, setIsAccountModalVisible] = useState(false);
 
   return (
     <View className="flex-1 bg-gray-50">
@@ -12,7 +14,11 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
         visible={isTrackFriendsVisible}
         onClose={() => setIsTrackFriendsVisible(false)}
       />
-      
+      <AccountModal 
+        visible={isAccountModalVisible}
+        onClose={() => setIsAccountModalVisible(false)}
+      />
+
       <View className="bg-white shadow-sm">
         <View className="flex-row items-center justify-between px-6 pt-14 pb-4">
           <View className="flex-row items-center">
@@ -173,7 +179,10 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
 
           <Text className="text-base font-medium text-gray-800 mt-8 mb-4">Account</Text>
 
-          <View className="flex-row items-center py-4 px-4 bg-white border border-gray-100 rounded-xl mb-2">
+          <TouchableOpacity 
+            className="flex-row items-center py-4 px-4 bg-white border border-gray-100 rounded-xl mb-2"
+            onPress={() => setIsAccountModalVisible(true)}
+          >
             <Image 
               source={require('../assets/profile.jpg')}
               className="w-14 h-14 rounded-full"
@@ -188,7 +197,7 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
               color="#666" 
               style={{ marginLeft: 'auto' }}
             />
-          </View>
+          </TouchableOpacity>
         </View>
         
         <View className="h-8" />
