@@ -41,7 +41,6 @@ export default function TrackFriendsScreen({ onClose }: { onClose: () => void })
       return;
     }
     
-    // Here you would typically make an API call to verify and add the friend
     Alert.alert('Success', 'Friend request sent successfully');
     setFriendCode('');
     setIsAddingFriend(false);
