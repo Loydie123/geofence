@@ -64,7 +64,7 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
 
       <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
         <View className="px-6 pt-6">
-          <View className="bg-white rounded-xl p-4 mb-6">
+          <View className="bg-white rounded-xl p-4">
             <View className="flex-row items-center">
               <Image 
                 source={require('../assets/profile.jpg')}
@@ -85,9 +85,23 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
                 <MaterialCommunityIcons name="pencil" size={20} color="#666" />
               </TouchableOpacity>
             </View>
+            <View className="mt-4 pt-4 border-t border-gray-100">
+              <View className="flex-row items-center justify-between">
+                <View>
+                  <Text className="text-sm text-gray-500">Your Friend Code</Text>
+                  <Text className="text-base font-medium text-gray-800 mt-1">COMM-1234-SAFE</Text>
+                </View>
+                <TouchableOpacity 
+                  className="p-2 rounded-lg bg-[#f0fdf4] active:bg-[#dcfce7]"
+                  onPress={() => {}}
+                >
+                  <MaterialCommunityIcons name="content-copy" size={20} color="#90EE90" />
+                </TouchableOpacity>
+              </View>
+            </View>
           </View>
 
-          <Text className="text-base font-medium text-gray-800 mb-4">Settings</Text>
+          <Text className="text-base font-medium text-gray-800 mt-6 mb-4">Settings</Text>
           {settings.map(setting => (
             <View 
               key={setting.id}
