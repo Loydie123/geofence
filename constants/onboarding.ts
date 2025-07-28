@@ -7,7 +7,7 @@ export const onboardingSlides = [
   },
   {
     id: '2',
-    image: require('../assets/images/onboarding/2.jpeg'),
+    image: require('../assets/images/onboarding/2.png'),
     title: 'Smart Geofencing',
     description: 'Set up custom safety zones and get real-time alerts when needed.',
   },
