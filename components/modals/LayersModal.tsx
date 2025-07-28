@@ -2,33 +2,13 @@ import { Modal, View, Text, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useState } from 'react';
 import MapView from 'react-native-maps';
-
-type MapType = 'standard' | 'satellite' | 'hybrid' | 'terrain';
+import { MapType, MAP_LAYERS, PREVIEW_REGION } from '../../constants/maps';
 
 interface LayersModalProps {
   visible: boolean;
   onClose: () => void;
   onSelectMapType?: (type: MapType) => void;
 }
-
-type Layer = {
-  id: MapType;
-  name: string;
-};
-
-const layers: Layer[] = [
-  { id: 'standard', name: 'Standard' },
-  { id: 'satellite', name: 'Satellite' },
-  { id: 'hybrid', name: 'Hybrid' },
-  { id: 'terrain', name: 'Terrain' }
-];
-
-const PREVIEW_REGION = {
-  latitude: 14.5995,
-  longitude: 120.9842,
-  latitudeDelta: 0.1,
-  longitudeDelta: 0.1,
-};
 
 export default function LayersModal({ visible, onClose, onSelectMapType }: LayersModalProps) {
   const [selectedLayer, setSelectedLayer] = useState<MapType>('standard');
@@ -60,7 +40,7 @@ export default function LayersModal({ visible, onClose, onSelectMapType }: Layer
           </View>
 
           <View className="p-4">
-            {layers.map(layer => (
+            {MAP_LAYERS.map(layer => (
               <TouchableOpacity 
                 key={layer.id}
                 className={`flex-row items-center p-3 rounded-xl mb-2 ${selectedLayer === layer.id ? 'bg-[#f0fdf4]' : ''}`}
