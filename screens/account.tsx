@@ -1,28 +1,16 @@
 import { View, Text, TouchableOpacity, Image, ScrollView, Switch } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { useState } from 'react';
-import { useAuth } from '../hooks/useAuth';
-import { createAccountSettings, FRIEND_CODE, MASKED_CODE } from '../constants/account';
+import { FRIEND_CODE, MASKED_CODE } from '../constants/account';
+import { useAccount } from '../hooks/useAccount';
 
 export default function AccountScreen({ onClose }: { onClose: () => void }) {
-  const [notificationsEnabled, setNotificationsEnabled] = useState(true);
-  const [locationEnabled, setLocationEnabled] = useState(true);
-  const [isCodeVisible, setIsCodeVisible] = useState(false);
-  const { handleSignOut } = useAuth();
-
-  const onSignOut = async () => {
-    const { success } = await handleSignOut();
-    if (success) {
-      onClose();
-    }
-  };
-
-  const settings = createAccountSettings(
-    notificationsEnabled,
-    locationEnabled,
-    () => setNotificationsEnabled(prev => !prev),
-    () => setLocationEnabled(prev => !prev)
-  );
+  const {
+    isCodeVisible,
+    settings,
+    toggleCodeVisibility,
+    copyCode,
+    handleSignOut,
+  } = useAccount(onClose);
 
   return (
     <View className="flex-1 bg-gray-50">
@@ -78,7 +66,7 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
                     </Text>
                     <TouchableOpacity
                       className="ml-2 p-1 rounded-full active:bg-gray-100"
-                      onPress={() => setIsCodeVisible(!isCodeVisible)}
+                      onPress={toggleCodeVisibility}
                     >
                       <MaterialCommunityIcons 
                         name={isCodeVisible ? "eye-off" : "eye"} 
@@ -90,7 +78,7 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
                 </View>
                 <TouchableOpacity 
                   className="p-2 rounded-lg bg-[#f0fdf4] active:bg-[#dcfce7]"
-                  onPress={() => {}}
+                  onPress={copyCode}
                 >
                   <MaterialCommunityIcons name="content-copy" size={20} color="#90EE90" />
                 </TouchableOpacity>
@@ -145,7 +133,7 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
 
           <TouchableOpacity 
             className="mt-6 mb-8 bg-red-50 rounded-xl p-4 flex-row items-center justify-center"
-            onPress={onSignOut}
+            onPress={handleSignOut}
           >
             <MaterialCommunityIcons name="logout" size={20} color="#FF6B6B" />
             <Text className="ml-2 text-[#FF6B6B] font-medium">Sign Out</Text>
