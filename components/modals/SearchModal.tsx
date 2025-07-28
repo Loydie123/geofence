@@ -1,6 +1,7 @@
 import { Modal, View, Text, TouchableOpacity, TextInput, ScrollView, Image } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useState } from 'react';
+import { RECENT_SEARCHES, SEARCH_PLACEHOLDER, RECENT_SEARCHES_TITLE } from '../../constants/search';
 
 interface SearchModalProps {
   visible: boolean;
@@ -9,13 +10,6 @@ interface SearchModalProps {
 
 export default function SearchModal({ visible, onClose }: SearchModalProps) {
   const [searchQuery, setSearchQuery] = useState('');
-
-  const recentSearches = [
-    'Mall of Asia',
-    'SM Megamall',
-    'Glorietta',
-    'BGC',
-  ];
 
   return (
     <Modal
@@ -49,7 +43,7 @@ export default function SearchModal({ visible, onClose }: SearchModalProps) {
             <MaterialCommunityIcons name="magnify" size={20} color="#666" />
             <TextInput
               className="flex-1 py-3 px-2 text-base"
-              placeholder="Search for a place"
+              placeholder={SEARCH_PLACEHOLDER}
               value={searchQuery}
               onChangeText={setSearchQuery}
               autoFocus
@@ -64,21 +58,21 @@ export default function SearchModal({ visible, onClose }: SearchModalProps) {
             )}
           </View>
 
-          <Text className="text-base font-medium text-gray-800 mb-4">Recent Searches</Text>
+          <Text className="text-base font-medium text-gray-800 mb-4">{RECENT_SEARCHES_TITLE}</Text>
           <ScrollView>
-            {recentSearches.map((search, index) => (
+            {RECENT_SEARCHES.map(search => (
               <TouchableOpacity 
-                key={index}
+                key={search.id}
                 className="flex-row items-center py-4 px-4 bg-white border border-gray-100 rounded-xl mb-2"
                 onPress={() => {
-                  setSearchQuery(search);
+                  setSearchQuery(search.name);
                 }}
               >
                 <View className="bg-[#f0fdf4] p-2 rounded-lg">
                   <MaterialCommunityIcons name="history" size={24} color="#90EE90" />
                 </View>
                 <View className="ml-3 flex-1">
-                  <Text className="text-base text-gray-800">{search}</Text>
+                  <Text className="text-base text-gray-800">{search.name}</Text>
                 </View>
                 <MaterialCommunityIcons 
                   name="chevron-right" 
