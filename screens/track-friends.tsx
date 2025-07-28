@@ -56,7 +56,6 @@ export default function TrackFriendsScreen({ onClose }: { onClose: () => void })
 
       <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
         <View className="px-6 pt-6">
-          {/* Search Bar */}
           <View className="flex-row items-center bg-white rounded-xl px-4 mb-6">
             <MaterialCommunityIcons name="magnify" size={20} color="#666" />
             <TextInput
