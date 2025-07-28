@@ -134,7 +134,6 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
             </View>
           ))}
 
-          {/* Sign Out Button */}
           <TouchableOpacity 
             className="mt-6 mb-8 bg-red-50 rounded-xl p-4 flex-row items-center justify-center"
             onPress={handleSignOut}
