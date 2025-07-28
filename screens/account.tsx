@@ -64,7 +64,6 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
 
       <ScrollView className="flex-1" showsVerticalScrollIndicator={false}>
         <View className="px-6 pt-6">
-          {/* Profile Section */}
           <View className="bg-white rounded-xl p-4 mb-6">
             <View className="flex-row items-center">
               <Image 
