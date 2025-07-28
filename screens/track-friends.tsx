@@ -31,7 +31,7 @@ const mockFriends: Friend[] = [
 
 export default function TrackFriendsScreen({ onClose }: { onClose: () => void }) {
   const [searchQuery, setSearchQuery] = useState('');
-  const [friends] = useState<Friend[]>(mockFriends);
+  const [friends, setFriends] = useState<Friend[]>(mockFriends);
   const [friendCode, setFriendCode] = useState('');
   const [isAddingFriend, setIsAddingFriend] = useState(false);
 
@@ -44,6 +44,27 @@ export default function TrackFriendsScreen({ onClose }: { onClose: () => void })
     Alert.alert('Success', 'Friend request sent successfully');
     setFriendCode('');
     setIsAddingFriend(false);
+  };
+
+  const handleUnfriend = (friendId: string, friendName: string) => {
+    Alert.alert(
+      'Unfriend Confirmation',
+      `Are you sure you want to unfriend ${friendName}?`,
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel'
+        },
+        {
+          text: 'Unfriend',
+          style: 'destructive',
+          onPress: () => {
+            setFriends(currentFriends => currentFriends.filter(friend => friend.id !== friendId));
+            Alert.alert('Success', `${friendName} has been removed from your friends list`);
+          }
+        }
+      ]
+    );
   };
 
   return (
@@ -154,6 +175,16 @@ export default function TrackFriendsScreen({ onClose }: { onClose: () => void })
                   size={24} 
                   color="#90EE90"
                 />
+                <TouchableOpacity 
+                  className="ml-3 p-1 rounded-full active:bg-gray-100"
+                  onPress={() => handleUnfriend(friend.id, friend.name)}
+                >
+                  <MaterialCommunityIcons 
+                    name="account-remove" 
+                    size={22} 
+                    color="#FF6B6B" 
+                  />
+                </TouchableOpacity>
               </View>
             </TouchableOpacity>
           ))}
