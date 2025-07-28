@@ -88,7 +88,6 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
             </View>
           </View>
 
-          {/* Settings Section */}
           <Text className="text-base font-medium text-gray-800 mb-4">Settings</Text>
           {settings.map(setting => (
             <View 
