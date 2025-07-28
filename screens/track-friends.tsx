@@ -1,37 +1,11 @@
 import { View, Text, TouchableOpacity, Image, ScrollView, TextInput, Alert, Modal } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useState } from 'react';
-
-interface Friend {
-  id: string;
-  name: string;
-  email: string;
-  status: 'online' | 'offline';
-  lastSeen?: string;
-  avatar?: string;
-}
-
-const mockFriends: Friend[] = [
-  {
-    id: '1',
-    name: 'Sarah Johnson',
-    email: 'sarah.j@example.com',
-    status: 'online',
-    avatar: 'https://i.pravatar.cc/150?img=1'
-  },
-  {
-    id: '2',
-    name: 'Mike Chen',
-    email: 'mike.chen@example.com',
-    status: 'offline',
-    lastSeen: '2 hours ago',
-    avatar: 'https://i.pravatar.cc/150?img=2'
-  }
-];
+import { Friend, MOCK_FRIENDS, FRIEND_ACTIONS } from '../constants/friends';
 
 export default function TrackFriendsScreen({ onClose }: { onClose: () => void }) {
   const [searchQuery, setSearchQuery] = useState('');
-  const [friends, setFriends] = useState<Friend[]>(mockFriends);
+  const [friends, setFriends] = useState<Friend[]>(MOCK_FRIENDS);
   const [friendCode, setFriendCode] = useState('');
   const [isAddingFriend, setIsAddingFriend] = useState(false);
   const [selectedFriend, setSelectedFriend] = useState<Friend | null>(null);
@@ -42,7 +16,6 @@ export default function TrackFriendsScreen({ onClose }: { onClose: () => void })
       Alert.alert('Error', 'Please enter a friend code');
       return;
     }
-    
     Alert.alert('Success', 'Friend request sent successfully');
     setFriendCode('');
     setIsAddingFriend(false);
@@ -233,16 +206,28 @@ export default function TrackFriendsScreen({ onClose }: { onClose: () => void })
                 className="flex-row items-center px-6 py-4 active:bg-gray-50"
                 onPress={() => selectedFriend && handleTrackLocation(selectedFriend.name)}
               >
-                <MaterialCommunityIcons name="map-marker" size={24} color="#90EE90" />
-                <Text className="ml-3 text-base text-gray-800">Track Location</Text>
+                <MaterialCommunityIcons 
+                  name={FRIEND_ACTIONS.TRACK_LOCATION.icon} 
+                  size={24} 
+                  color={FRIEND_ACTIONS.TRACK_LOCATION.color} 
+                />
+                <Text className="ml-3 text-base text-gray-800">
+                  {FRIEND_ACTIONS.TRACK_LOCATION.label}
+                </Text>
               </TouchableOpacity>
 
               <TouchableOpacity 
                 className="flex-row items-center px-6 py-4 active:bg-gray-50"
                 onPress={() => selectedFriend && handleUnfriend(selectedFriend.id, selectedFriend.name)}
               >
-                <MaterialCommunityIcons name="account-remove" size={24} color="#FF6B6B" />
-                <Text className="ml-3 text-base text-[#FF6B6B]">Unfriend</Text>
+                <MaterialCommunityIcons 
+                  name={FRIEND_ACTIONS.UNFRIEND.icon} 
+                  size={24} 
+                  color={FRIEND_ACTIONS.UNFRIEND.color} 
+                />
+                <Text className="ml-3 text-base" style={{ color: FRIEND_ACTIONS.UNFRIEND.color }}>
+                  {FRIEND_ACTIONS.UNFRIEND.label}
+                </Text>
               </TouchableOpacity>
 
               <TouchableOpacity 
