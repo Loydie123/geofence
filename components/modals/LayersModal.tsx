@@ -23,7 +23,6 @@ const layers: Layer[] = [
   { id: 'terrain', name: 'Terrain' }
 ];
 
-// Center point for preview maps (Metro Manila, Philippines)
 const PREVIEW_REGION = {
   latitude: 14.5995,
   longitude: 120.9842,
