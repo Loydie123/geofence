@@ -1,23 +1,21 @@
 import { Modal, View, Text, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { useState } from 'react';
 import MapView from 'react-native-maps';
 import { MapType, MAP_LAYERS, PREVIEW_REGION } from '../../constants/maps';
 
 interface LayersModalProps {
   visible: boolean;
   onClose: () => void;
-  onSelectMapType?: (type: MapType) => void;
+  selectedLayer: MapType;
+  onSelectLayer: (type: MapType) => void;
 }
 
-export default function LayersModal({ visible, onClose, onSelectMapType }: LayersModalProps) {
-  const [selectedLayer, setSelectedLayer] = useState<MapType>('standard');
-
-  const handleSelectLayer = (layerId: MapType) => {
-    setSelectedLayer(layerId);
-    onSelectMapType?.(layerId);
-  };
-
+export default function LayersModal({ 
+  visible, 
+  onClose, 
+  selectedLayer,
+  onSelectLayer 
+}: LayersModalProps) {
   return (
     <Modal
       transparent={true}
@@ -44,7 +42,7 @@ export default function LayersModal({ visible, onClose, onSelectMapType }: Layer
               <TouchableOpacity 
                 key={layer.id}
                 className={`flex-row items-center p-3 rounded-xl mb-2 ${selectedLayer === layer.id ? 'bg-[#f0fdf4]' : ''}`}
-                onPress={() => handleSelectLayer(layer.id)}
+                onPress={() => onSelectLayer(layer.id)}
               >
                 <View className={`w-24 h-24 rounded-lg overflow-hidden ${selectedLayer === layer.id ? 'border-2 border-[#90EE90]' : 'border border-gray-200'}`}>
                   <MapView

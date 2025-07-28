@@ -4,11 +4,28 @@ import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import SettingsModal from '../modals/SettingsModal';
 import ShareModal from '../modals/ShareModal';
 import LayersModal from '../modals/LayersModal';
+import { useMapLayers } from '../../hooks/useMapLayers';
+import { MapType } from '../../constants/maps';
 
-export default function MapButtons() {
+interface MapButtonsProps {
+  onMapTypeChange?: (mapType: MapType) => void;
+}
+
+export default function MapButtons({ onMapTypeChange }: MapButtonsProps) {
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
   const [isShareVisible, setIsShareVisible] = useState(false);
-  const [isLayersVisible, setIsLayersVisible] = useState(false);
+  const {
+    selectedLayer,
+    isLayersModalVisible,
+    showLayersModal,
+    hideLayersModal,
+    handleSelectLayer
+  } = useMapLayers();
+
+  const handleLayerChange = (type: MapType) => {
+    handleSelectLayer(type);
+    onMapTypeChange?.(type);
+  };
 
   return (
     <View style={{
@@ -87,14 +104,16 @@ export default function MapButtons() {
           elevation: 5,
           transform: [{ translateY: 40 }],
         }}
-        onPress={() => setIsLayersVisible(true)}
+        onPress={showLayersModal}
       >
         <MaterialCommunityIcons name="layers-triple" size={28} color="#90EE90" />
       </TouchableOpacity>
 
       <LayersModal 
-        visible={isLayersVisible}
-        onClose={() => setIsLayersVisible(false)}
+        visible={isLayersModalVisible}
+        onClose={hideLayersModal}
+        selectedLayer={selectedLayer}
+        onSelectLayer={handleLayerChange}
       />
 
       <TouchableOpacity
