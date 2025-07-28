@@ -88,7 +88,7 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
             <View className="mt-4 pt-4 border-t border-gray-100">
               <View className="flex-row items-center justify-between">
                 <View>
-                  <Text className="text-sm text-gray-500">Your Friend Code</Text>
+                  <Text className="text-sm text-gray-500">Your Code</Text>
                   <Text className="text-base font-medium text-gray-800 mt-1">COMM-1234-SAFE</Text>
                 </View>
                 <TouchableOpacity 
