@@ -15,6 +15,10 @@ interface AccountSetting {
 export default function AccountScreen({ onClose }: { onClose: () => void }) {
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
   const [locationEnabled, setLocationEnabled] = useState(true);
+  const [isCodeVisible, setIsCodeVisible] = useState(false);
+
+  const friendCode = 'COMM-1234-SAFE';
+  const maskedCode = '••••-••••-••••';
 
   const handleSignOut = () => {
     onClose();
@@ -89,7 +93,21 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
               <View className="flex-row items-center justify-between">
                 <View>
                   <Text className="text-sm text-gray-500">Your Code</Text>
-                  <Text className="text-base font-medium text-gray-800 mt-1">COMM-1234-SAFE</Text>
+                  <View className="flex-row items-center mt-1">
+                    <Text className="text-base font-medium text-gray-800">
+                      {isCodeVisible ? friendCode : maskedCode}
+                    </Text>
+                    <TouchableOpacity
+                      className="ml-2 p-1 rounded-full active:bg-gray-100"
+                      onPress={() => setIsCodeVisible(!isCodeVisible)}
+                    >
+                      <MaterialCommunityIcons 
+                        name={isCodeVisible ? "eye-off" : "eye"} 
+                        size={18} 
+                        color="#666"
+                      />
+                    </TouchableOpacity>
+                  </View>
                 </View>
                 <TouchableOpacity 
                   className="p-2 rounded-lg bg-[#f0fdf4] active:bg-[#dcfce7]"
