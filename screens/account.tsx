@@ -17,7 +17,6 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
   const [locationEnabled, setLocationEnabled] = useState(true);
 
   const handleSignOut = () => {
-    // TODO: Implement sign out functionality
     onClose();
   };
 
