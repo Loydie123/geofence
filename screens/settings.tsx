@@ -7,7 +7,11 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
       <View className="bg-white shadow-sm">
         <View className="flex-row items-center justify-between px-6 pt-14 pb-4">
           <View className="flex-row items-center">
-            <MaterialCommunityIcons name="shield-check" size={28} color="#90EE90" />
+            <Image 
+              source={require('../assets/images/geofence.png')}
+              className="w-10 h-10"
+              resizeMode="contain"
+            />
             <Text className="text-xl font-semibold ml-2">CommuteSafe</Text>
           </View>
           <TouchableOpacity 
