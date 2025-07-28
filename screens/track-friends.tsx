@@ -206,7 +206,6 @@ export default function TrackFriendsScreen({ onClose }: { onClose: () => void })
         <View className="h-8" />
       </ScrollView>
 
-      {/* Action Modal */}
       <Modal
         visible={showActionModal}
         transparent={true}
