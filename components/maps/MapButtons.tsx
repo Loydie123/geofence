@@ -4,6 +4,7 @@ import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import SettingsModal from '../modals/SettingsModal';
 import ShareModal from '../modals/ShareModal';
 import LayersModal from '../modals/LayersModal';
+import SearchModal from '../modals/SearchModal';
 import { useMapLayers } from '../../hooks/useMapLayers';
 import { MapType } from '../../constants/maps';
 
@@ -14,6 +15,7 @@ interface MapButtonsProps {
 export default function MapButtons({ onMapTypeChange }: MapButtonsProps) {
   const [isSettingsVisible, setIsSettingsVisible] = useState(false);
   const [isShareVisible, setIsShareVisible] = useState(false);
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
   const {
     selectedLayer,
     isLayersModalVisible,
@@ -162,10 +164,15 @@ export default function MapButtons({ onMapTypeChange }: MapButtonsProps) {
           elevation: 5,
           transform: [{ translateY: 160 }],
         }}
-        onPress={() => {}}
+        onPress={() => setIsSearchVisible(true)}
       >
         <MaterialCommunityIcons name="magnify" size={28} color="#90EE90" />
       </TouchableOpacity>
+
+      <SearchModal 
+        visible={isSearchVisible}
+        onClose={() => setIsSearchVisible(false)}
+      />
     </View>
   );
 } 
