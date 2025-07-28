@@ -29,6 +29,20 @@ export default function MapButtons({ onMapTypeChange }: MapButtonsProps) {
     onMapTypeChange?.(type);
   };
 
+  const buttonStyle = {
+    backgroundColor: 'white',
+    borderRadius: 25,
+    padding: 8,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  };
+
   return (
     <View style={{
       position: 'absolute',
@@ -40,24 +54,14 @@ export default function MapButtons({ onMapTypeChange }: MapButtonsProps) {
     }}>
       <TouchableOpacity
         style={{
+          ...buttonStyle,
           position: 'absolute',
           top: 35,
           left: 20,
-          backgroundColor: 'white',
-          borderRadius: 30,
-          padding: 10,
-          shadowColor: '#000',
-          shadowOffset: {
-            width: 0,
-            height: 2,
-          },
-          shadowOpacity: 0.25,
-          shadowRadius: 3.84,
-          elevation: 5,
         }}
         onPress={() => setIsSettingsVisible(true)}
       >
-        <Ionicons name="settings" size={24} color="#90EE90" />
+        <Ionicons name="settings" size={20} color="#90EE90" />
       </TouchableOpacity>
 
       <SettingsModal 
@@ -67,48 +71,28 @@ export default function MapButtons({ onMapTypeChange }: MapButtonsProps) {
 
       <TouchableOpacity
         style={{
+          ...buttonStyle,
           position: 'absolute',
           top: '50%',
           right: 20,
-          backgroundColor: 'white',
-          borderRadius: 30,
-          padding: 10,
-          shadowColor: '#000',
-          shadowOffset: {
-            width: 0,
-            height: 2,
-          },
-          shadowOpacity: 0.25,
-          shadowRadius: 3.84,
-          elevation: 5,
           transform: [{ translateY: -20 }],
         }}
         onPress={() => {}}
       >
-        <MaterialCommunityIcons name="crosshairs-gps" size={28} color="#90EE90" />
+        <MaterialCommunityIcons name="crosshairs-gps" size={22} color="#90EE90" />
       </TouchableOpacity>
 
       <TouchableOpacity
         style={{
+          ...buttonStyle,
           position: 'absolute',
           top: '50%',
           right: 20,
-          backgroundColor: 'white',
-          borderRadius: 30,
-          padding: 10,
-          shadowColor: '#000',
-          shadowOffset: {
-            width: 0,
-            height: 2,
-          },
-          shadowOpacity: 0.25,
-          shadowRadius: 3.84,
-          elevation: 5,
           transform: [{ translateY: 40 }],
         }}
         onPress={showLayersModal}
       >
-        <MaterialCommunityIcons name="layers-triple" size={28} color="#90EE90" />
+        <MaterialCommunityIcons name="layers-triple" size={22} color="#90EE90" />
       </TouchableOpacity>
 
       <LayersModal 
@@ -120,25 +104,15 @@ export default function MapButtons({ onMapTypeChange }: MapButtonsProps) {
 
       <TouchableOpacity
         style={{
+          ...buttonStyle,
           position: 'absolute',
           top: '50%',
           right: 20,
-          backgroundColor: 'white',
-          borderRadius: 30,
-          padding: 10,
-          shadowColor: '#000',
-          shadowOffset: {
-            width: 0,
-            height: 2,
-          },
-          shadowOpacity: 0.25,
-          shadowRadius: 3.84,
-          elevation: 5,
           transform: [{ translateY: 100 }],
         }}
         onPress={() => setIsShareVisible(true)}
       >
-        <MaterialCommunityIcons name="share-variant" size={28} color="#90EE90" />
+        <MaterialCommunityIcons name="share-variant" size={22} color="#90EE90" />
       </TouchableOpacity>
 
       <ShareModal 
@@ -148,25 +122,15 @@ export default function MapButtons({ onMapTypeChange }: MapButtonsProps) {
 
       <TouchableOpacity
         style={{
+          ...buttonStyle,
           position: 'absolute',
           top: '50%',
           right: 20,
-          backgroundColor: 'white',
-          borderRadius: 30,
-          padding: 10,
-          shadowColor: '#000',
-          shadowOffset: {
-            width: 0,
-            height: 2,
-          },
-          shadowOpacity: 0.25,
-          shadowRadius: 3.84,
-          elevation: 5,
           transform: [{ translateY: 160 }],
         }}
         onPress={() => setIsSearchVisible(true)}
       >
-        <MaterialCommunityIcons name="magnify" size={28} color="#90EE90" />
+        <MaterialCommunityIcons name="magnify" size={22} color="#90EE90" />
       </TouchableOpacity>
 
       <SearchModal 
