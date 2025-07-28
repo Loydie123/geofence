@@ -1,9 +1,18 @@
 import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useState } from 'react';
+import TrackFriendsModal from '../components/modals/TrackFriendsModal';
 
 export default function SettingsScreen({ onClose }: { onClose: () => void }) {
+  const [isTrackFriendsVisible, setIsTrackFriendsVisible] = useState(false);
+
   return (
     <View className="flex-1 bg-gray-50">
+      <TrackFriendsModal 
+        visible={isTrackFriendsVisible}
+        onClose={() => setIsTrackFriendsVisible(false)}
+      />
+      
       <View className="bg-white shadow-sm">
         <View className="flex-row items-center justify-between px-6 pt-14 pb-4">
           <View className="flex-row items-center">
@@ -65,7 +74,7 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
 
           <TouchableOpacity 
             className="flex-row items-center py-4 px-4 bg-white border border-gray-100 rounded-xl active:bg-gray-50 mb-8"
-            onPress={() => {}}
+            onPress={() => setIsTrackFriendsVisible(true)}
           >
             <View className="bg-[#f0fdf4] p-2 rounded-lg">
               <MaterialCommunityIcons name="account-group" size={24} color="#90EE90" />
