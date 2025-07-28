@@ -25,7 +25,6 @@ export function useAccount(onClose: () => void): UseAccountReturn {
   const toggleCodeVisibility = () => setIsCodeVisible(prev => !prev);
 
   const copyCode = () => {
-    // For now, just console log
     console.log('Code copied to clipboard');
   };
 
