@@ -38,22 +38,6 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
       icon: 'map-marker',
       value: locationEnabled,
       onPress: () => setLocationEnabled(prev => !prev)
-    },
-    {
-      id: 'privacy',
-      title: 'Privacy Settings',
-      description: 'Manage your data and privacy preferences',
-      type: 'action',
-      icon: 'shield-lock',
-      onPress: () => {}
-    },
-    {
-      id: 'help',
-      title: 'Help & Support',
-      description: 'Get help with the app and report issues',
-      type: 'action',
-      icon: 'help-circle',
-      onPress: () => {}
     }
   ];
 
