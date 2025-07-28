@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, ScrollView, TextInput } from 'react-native';
+import { View, Text, TouchableOpacity, Image, ScrollView, TextInput, Alert } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useState } from 'react';
 
@@ -32,6 +32,20 @@ const mockFriends: Friend[] = [
 export default function TrackFriendsScreen({ onClose }: { onClose: () => void }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [friends] = useState<Friend[]>(mockFriends);
+  const [friendCode, setFriendCode] = useState('');
+  const [isAddingFriend, setIsAddingFriend] = useState(false);
+
+  const handleAddFriend = () => {
+    if (!friendCode.trim()) {
+      Alert.alert('Error', 'Please enter a friend code');
+      return;
+    }
+    
+    // Here you would typically make an API call to verify and add the friend
+    Alert.alert('Success', 'Friend request sent successfully');
+    setFriendCode('');
+    setIsAddingFriend(false);
+  };
 
   return (
     <View className="flex-1 bg-gray-50">
@@ -66,24 +80,48 @@ export default function TrackFriendsScreen({ onClose }: { onClose: () => void })
             />
           </View>
 
-          <TouchableOpacity 
-            className="flex-row items-center py-4 px-4 bg-white border border-gray-100 rounded-xl active:bg-gray-50 mb-6"
-            onPress={() => {}}
-          >
-            <View className="bg-[#f0fdf4] p-2 rounded-lg">
-              <MaterialCommunityIcons name="account-plus" size={24} color="#90EE90" />
-            </View>
-            <View className="ml-3">
-              <Text className="text-base font-medium text-gray-800">Add New Friend</Text>
-              <Text className="text-sm text-gray-500">Invite friends to track location</Text>
-            </View>
-            <MaterialCommunityIcons 
-              name="chevron-right" 
-              size={24} 
-              color="#666" 
-              style={{ marginLeft: 'auto' }}
-            />
-          </TouchableOpacity>
+          <View className="bg-white border border-gray-100 rounded-xl mb-6 overflow-hidden">
+            <TouchableOpacity 
+              className="flex-row items-center py-4 px-4 active:bg-gray-50"
+              onPress={() => setIsAddingFriend(!isAddingFriend)}
+            >
+              <View className="bg-[#f0fdf4] p-2 rounded-lg">
+                <MaterialCommunityIcons name="account-plus" size={24} color="#90EE90" />
+              </View>
+              <View className="ml-3 flex-1">
+                <Text className="text-base font-medium text-gray-800">Add New Friend</Text>
+                <Text className="text-sm text-gray-500">Enter friend's code to connect</Text>
+              </View>
+              <MaterialCommunityIcons 
+                name={isAddingFriend ? "chevron-up" : "chevron-down"}
+                size={24} 
+                color="#666" 
+              />
+            </TouchableOpacity>
+
+            {isAddingFriend && (
+              <View className="px-4 pb-4">
+                <View className="flex-row items-center">
+                  <TextInput
+                    className="flex-1 py-3 px-4 bg-gray-50 rounded-l-xl text-base"
+                    placeholder="Enter friend code"
+                    value={friendCode}
+                    onChangeText={setFriendCode}
+                    autoCapitalize="none"
+                  />
+                  <TouchableOpacity 
+                    className="bg-[#90EE90] py-3 px-6 rounded-r-xl active:bg-[#7acc7a]"
+                    onPress={handleAddFriend}
+                  >
+                    <Text className="text-white font-medium">Add</Text>
+                  </TouchableOpacity>
+                </View>
+                <Text className="text-xs text-gray-500 mt-2">
+                  Your friend code: COMM-1234-SAFE
+                </Text>
+              </View>
+            )}
+          </View>
 
           <Text className="text-base font-medium text-gray-800 mb-4">Your Friends</Text>
           
