@@ -2,25 +2,13 @@ import { View, Text, TouchableOpacity, Image, ScrollView, Switch } from 'react-n
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
-
-interface AccountSetting {
-  id: string;
-  title: string;
-  description: string;
-  type: 'toggle' | 'action';
-  icon: string;
-  value?: boolean;
-  onPress?: () => void;
-}
+import { createAccountSettings, FRIEND_CODE, MASKED_CODE } from '../constants/account';
 
 export default function AccountScreen({ onClose }: { onClose: () => void }) {
   const [notificationsEnabled, setNotificationsEnabled] = useState(true);
   const [locationEnabled, setLocationEnabled] = useState(true);
   const [isCodeVisible, setIsCodeVisible] = useState(false);
   const { handleSignOut } = useAuth();
-
-  const friendCode = 'COMM-1234-SAFE';
-  const maskedCode = '••••-••••-••••';
 
   const onSignOut = async () => {
     const { success } = await handleSignOut();
@@ -29,26 +17,12 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
     }
   };
 
-  const settings: AccountSetting[] = [
-    {
-      id: 'notifications',
-      title: 'Push Notifications',
-      description: 'Get notified about friend requests and location alerts',
-      type: 'toggle',
-      icon: 'bell-ring',
-      value: notificationsEnabled,
-      onPress: () => setNotificationsEnabled(prev => !prev)
-    },
-    {
-      id: 'location',
-      title: 'Location Services',
-      description: 'Allow app to access your location in background',
-      type: 'toggle',
-      icon: 'map-marker',
-      value: locationEnabled,
-      onPress: () => setLocationEnabled(prev => !prev)
-    }
-  ];
+  const settings = createAccountSettings(
+    notificationsEnabled,
+    locationEnabled,
+    () => setNotificationsEnabled(prev => !prev),
+    () => setLocationEnabled(prev => !prev)
+  );
 
   return (
     <View className="flex-1 bg-gray-50">
@@ -100,7 +74,7 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
                   <Text className="text-sm text-gray-500">Your Code</Text>
                   <View className="flex-row items-center mt-1">
                     <Text className="text-base font-medium text-gray-800">
-                      {isCodeVisible ? friendCode : maskedCode}
+                      {isCodeVisible ? FRIEND_CODE : MASKED_CODE}
                     </Text>
                     <TouchableOpacity
                       className="ml-2 p-1 rounded-full active:bg-gray-100"
