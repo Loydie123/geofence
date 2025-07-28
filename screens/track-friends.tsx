@@ -87,7 +87,6 @@ export default function TrackFriendsScreen({ onClose }: { onClose: () => void })
             />
           </TouchableOpacity>
 
-          {/* Friends List */}
           <Text className="text-base font-medium text-gray-800 mb-4">Your Friends</Text>
           
           {friends.map(friend => (
