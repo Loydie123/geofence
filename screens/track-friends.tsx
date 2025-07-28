@@ -1,52 +1,25 @@
 import { View, Text, TouchableOpacity, Image, ScrollView, TextInput, Alert, Modal } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { useState } from 'react';
-import { Friend, MOCK_FRIENDS, FRIEND_ACTIONS } from '../constants/friends';
+import { FRIEND_ACTIONS } from '../constants/friends';
+import { useFriends } from '../hooks/useFriends';
 
 export default function TrackFriendsScreen({ onClose }: { onClose: () => void }) {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [friends, setFriends] = useState<Friend[]>(MOCK_FRIENDS);
-  const [friendCode, setFriendCode] = useState('');
-  const [isAddingFriend, setIsAddingFriend] = useState(false);
-  const [selectedFriend, setSelectedFriend] = useState<Friend | null>(null);
-  const [showActionModal, setShowActionModal] = useState(false);
-
-  const handleAddFriend = () => {
-    if (!friendCode.trim()) {
-      Alert.alert('Error', 'Please enter a friend code');
-      return;
-    }
-    Alert.alert('Success', 'Friend request sent successfully');
-    setFriendCode('');
-    setIsAddingFriend(false);
-  };
-
-  const handleUnfriend = (friendId: string, friendName: string) => {
-    Alert.alert(
-      'Unfriend Confirmation',
-      `Are you sure you want to unfriend ${friendName}?`,
-      [
-        {
-          text: 'Cancel',
-          style: 'cancel'
-        },
-        {
-          text: 'Unfriend',
-          style: 'destructive',
-          onPress: () => {
-            setFriends(currentFriends => currentFriends.filter(friend => friend.id !== friendId));
-            Alert.alert('Success', `${friendName} has been removed from your friends list`);
-            setShowActionModal(false);
-          }
-        }
-      ]
-    );
-  };
-
-  const handleTrackLocation = (friendName: string) => {
-    Alert.alert('Track Location', `Starting to track ${friendName}'s location`);
-    setShowActionModal(false);
-  };
+  const {
+    friends,
+    searchQuery,
+    friendCode,
+    isAddingFriend,
+    selectedFriend,
+    showActionModal,
+    setSearchQuery,
+    setFriendCode,
+    setIsAddingFriend,
+    handleAddFriend,
+    handleUnfriend,
+    handleTrackLocation,
+    openFriendActions,
+    closeActionModal,
+  } = useFriends();
 
   return (
     <View className="flex-1 bg-gray-50">
@@ -153,10 +126,7 @@ export default function TrackFriendsScreen({ onClose }: { onClose: () => void })
                 </Text>
                 <TouchableOpacity 
                   className="p-1 rounded-full active:bg-gray-100"
-                  onPress={() => {
-                    setSelectedFriend(friend);
-                    setShowActionModal(true);
-                  }}
+                  onPress={() => openFriendActions(friend)}
                 >
                   <MaterialCommunityIcons 
                     name="dots-vertical" 
@@ -183,12 +153,12 @@ export default function TrackFriendsScreen({ onClose }: { onClose: () => void })
         visible={showActionModal}
         transparent={true}
         animationType="fade"
-        onRequestClose={() => setShowActionModal(false)}
+        onRequestClose={closeActionModal}
       >
         <TouchableOpacity 
           className="flex-1 bg-black/30"
           activeOpacity={1}
-          onPress={() => setShowActionModal(false)}
+          onPress={closeActionModal}
         >
           <View className="flex-1 justify-end">
             <View className="bg-white rounded-t-3xl">
@@ -232,7 +202,7 @@ export default function TrackFriendsScreen({ onClose }: { onClose: () => void })
 
               <TouchableOpacity 
                 className="flex-row items-center justify-center px-6 py-4 border-t border-gray-100 active:bg-gray-50"
-                onPress={() => setShowActionModal(false)}
+                onPress={closeActionModal}
               >
                 <Text className="text-base font-medium text-gray-500">Cancel</Text>
               </TouchableOpacity>
