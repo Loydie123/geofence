@@ -43,7 +43,7 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
               />
               <View className="ml-4 flex-1">
                 <Text className="text-xl font-semibold text-gray-800">
-                  John Doe
+                  Derf Espana
                 </Text>
                 <Text className="text-gray-500">
                   john.doe@example.com
