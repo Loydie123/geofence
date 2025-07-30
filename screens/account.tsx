@@ -46,7 +46,7 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
                   Derf Espana
                 </Text>
                 <Text className="text-gray-500">
-                  john.doe@example.com
+                  2022_cete_espanadl@online.htcgsc.edu.ph
                 </Text>
               </View>
               <TouchableOpacity 
