@@ -189,7 +189,7 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
             />
             <View className="ml-3">
               <Text className="text-base font-medium text-gray-800">Derf Espana</Text>
-              <Text className="text-sm text-gray-500">john.doe@example.com</Text>
+              <Text className="text-sm text-gray-500">2022_cete_espanadl@online.htcgsc.edu.ph</Text>
             </View>
             <MaterialCommunityIcons 
               name="chevron-right" 
