@@ -38,7 +38,7 @@ export default function AccountScreen({ onClose }: { onClose: () => void }) {
           <View className="bg-white rounded-xl p-4">
             <View className="flex-row items-center">
               <Image 
-                source={require('../assets/icon.png')}
+                source={require('../assets/derf.jpg')}
                 className="w-20 h-20 rounded-full"
               />
               <View className="ml-4 flex-1">
