@@ -184,7 +184,7 @@ export default function SettingsScreen({ onClose }: { onClose: () => void }) {
             onPress={() => setIsAccountModalVisible(true)}
           >
             <Image 
-              source={require('../assets/profile.jpg')}
+              source={require('../assets/derf.jpg')}
               className="w-14 h-14 rounded-full"
             />
             <View className="ml-3">
